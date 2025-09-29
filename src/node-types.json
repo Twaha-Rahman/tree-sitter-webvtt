@@ -1,0 +1,277 @@
+[
+  {
+    "type": "comment_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_terminator",
+          "named": true
+        },
+        {
+          "type": "line_with_terminator",
+          "named": true
+        },
+        {
+          "type": "tab_or_space",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cue_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cue_identifier",
+          "named": true
+        },
+        {
+          "type": "cue_settings",
+          "named": true
+        },
+        {
+          "type": "line_terminator",
+          "named": true
+        },
+        {
+          "type": "line_with_terminator",
+          "named": true
+        },
+        {
+          "type": "timestamp_range_line",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cue_setting",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cue_setting_item",
+          "named": true
+        },
+        {
+          "type": "separator_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cue_settings",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "cue_setting",
+          "named": true
+        },
+        {
+          "type": "tabs_or_spaces",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "items",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "comment_block",
+          "named": true
+        },
+        {
+          "type": "cue_block",
+          "named": true
+        },
+        {
+          "type": "region_definition_block",
+          "named": true
+        },
+        {
+          "type": "style_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "region_definition_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_terminator",
+          "named": true
+        },
+        {
+          "type": "region_setting_component",
+          "named": true
+        },
+        {
+          "type": "tabs_or_spaces",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "items",
+          "named": true
+        },
+        {
+          "type": "webvtt_block",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "style_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_terminator",
+          "named": true
+        },
+        {
+          "type": "line_with_terminator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "timestamp_range_line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "timestamp",
+          "named": true
+        },
+        {
+          "type": "timestamp_range_arrow",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "webvtt_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "byte_order_mark",
+          "named": true
+        },
+        {
+          "type": "line_terminator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "NOTE",
+    "named": false
+  },
+  {
+    "type": "REGION",
+    "named": false
+  },
+  {
+    "type": "STYLE",
+    "named": false
+  },
+  {
+    "type": "byte_order_mark",
+    "named": true
+  },
+  {
+    "type": "cue_identifier",
+    "named": true
+  },
+  {
+    "type": "cue_setting_item",
+    "named": true
+  },
+  {
+    "type": "line_terminator",
+    "named": true
+  },
+  {
+    "type": "line_with_terminator",
+    "named": true
+  },
+  {
+    "type": "region_setting_component",
+    "named": true
+  },
+  {
+    "type": "separator_colon",
+    "named": true
+  },
+  {
+    "type": "tab_or_space",
+    "named": true
+  },
+  {
+    "type": "tabs_or_spaces",
+    "named": true
+  },
+  {
+    "type": "timestamp",
+    "named": true
+  },
+  {
+    "type": "timestamp_range_arrow",
+    "named": true
+  }
+]

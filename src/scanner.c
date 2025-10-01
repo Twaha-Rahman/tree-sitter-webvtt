@@ -41,7 +41,8 @@ bool tree_sitter_webvtt_external_scanner_scan(void *payload, TSLexer *lexer,
                                               const bool *valid_symbols) {
 
   // if we encounter an empty line, we don't want to lex it
-  if (lexer->lookahead == '\n') {
+  if (lexer->lookahead == NEWLINE_CHAR ||
+      lexer->lookahead == CARRIAGE_RETRUN_CHAR) {
     return false;
   }
 

@@ -120,19 +120,18 @@ module.exports = grammar({
       $.timestamp,
     ),
 
-    byte_order_mark: $ => /(\uEFBBBF|\uFEFF|\uFFFE)/,
+    byte_order_mark: () => /\uEFBBBF|\uFEFF|\uFFFE/,
 
-    cue_setting_item: $ => /[^ :\n\r]+/,
-    separator_colon: $ => /:/,
+    cue_setting_item: () => /[^ :\n\r]+/,
+    separator_colon: () => /:/,
 
-    tab_separator: $ => /\t/,
-    space_separator: $ => / /,
+    tab_separator: () => /\t/,
+    space_separator: () => / /,
 
-    tabs_or_spaces: $ => /[ \t]+/,
-    line_terminator: $ => /(\n|\r|\n\r)/,
+    tabs_or_spaces: () => /[ \t]+/,
+    line_terminator: () => /\n|\r\n?/,
 
-    timestamp: $ => /([0-9]{2,}:)?([0-9]{2}:[0-9]{2}\.[0-9]{3})/,
-
-    timestamp_arrow: $ => /-->/,
+    timestamp: () => /([0-9]{2,}:)?[0-9]{2}:[0-9]{2}\.[0-9]{3}/,
+    timestamp_arrow: () => /-->/,
   }
 });

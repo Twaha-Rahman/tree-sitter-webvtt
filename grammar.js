@@ -57,22 +57,22 @@ module.exports = grammar({
     ),
 
     region_identifier: $ => seq(
-      "id", $.separator_colon, $.line_without_arrow
+      $.id_attribute, $.separator_colon, $.line_without_arrow
     ),
     region_width: $ => seq(
-      "width", $.separator_colon, $.line_without_arrow
+      $.width_attribute, $.separator_colon, $.line_without_arrow
     ),
     region_lines: $ => seq(
-      "lines", $.separator_colon, $.line_without_arrow
+      $.lines_attribute, $.separator_colon, $.line_without_arrow
     ),
     region_anchor: $ => seq(
-      "regionanchor", $.separator_colon, $.line_without_arrow
+      $.region_anchor_attribute, $.separator_colon, $.line_without_arrow
     ),
     region_viewport_anchor: $ => seq(
-      "viewportanchor", $.separator_colon, $.line_without_arrow
+      $.viewport_anchor_attribute, $.separator_colon, $.line_without_arrow
     ),
     region_scroll: $ => seq(
-      "scroll", $.separator_colon, $.line_without_arrow
+      $.scroll_attribute, $.separator_colon, $.line_without_arrow
     ),
 
 

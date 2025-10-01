@@ -104,6 +104,10 @@
           "named": true
         },
         {
+          "type": "region_anchor_attribute",
+          "named": true
+        },
+        {
           "type": "separator_colon",
           "named": true
         }
@@ -162,6 +166,10 @@
       "required": true,
       "types": [
         {
+          "type": "id_attribute",
+          "named": true
+        },
+        {
           "type": "line_without_arrow",
           "named": true
         },
@@ -185,6 +193,10 @@
           "named": true
         },
         {
+          "type": "lines_attribute",
+          "named": true
+        },
+        {
           "type": "separator_colon",
           "named": true
         }
@@ -201,6 +213,10 @@
       "types": [
         {
           "type": "line_without_arrow",
+          "named": true
+        },
+        {
+          "type": "scroll_attribute",
           "named": true
         },
         {
@@ -225,6 +241,10 @@
         {
           "type": "separator_colon",
           "named": true
+        },
+        {
+          "type": "viewport_anchor_attribute",
+          "named": true
         }
       ]
     }
@@ -243,6 +263,10 @@
         },
         {
           "type": "separator_colon",
+          "named": true
+        },
+        {
+          "type": "width_attribute",
           "named": true
         }
       ]
@@ -370,19 +394,23 @@
     "named": true
   },
   {
-    "type": "id",
-    "named": false
+    "type": "id_attribute",
+    "named": true
   },
   {
     "type": "line_without_arrow",
     "named": true
   },
   {
-    "type": "lines",
-    "named": false
+    "type": "lines_attribute",
+    "named": true
   },
   {
     "type": "note_keyword",
+    "named": true
+  },
+  {
+    "type": "region_anchor_attribute",
     "named": true
   },
   {
@@ -390,12 +418,8 @@
     "named": true
   },
   {
-    "type": "regionanchor",
-    "named": false
-  },
-  {
-    "type": "scroll",
-    "named": false
+    "type": "scroll_attribute",
+    "named": true
   },
   {
     "type": "separator_colon",
@@ -426,15 +450,15 @@
     "named": true
   },
   {
-    "type": "viewportanchor",
-    "named": false
+    "type": "viewport_anchor_attribute",
+    "named": true
   },
   {
     "type": "webvtt_keyword",
     "named": true
   },
   {
-    "type": "width",
-    "named": false
+    "type": "width_attribute",
+    "named": true
   }
 ]

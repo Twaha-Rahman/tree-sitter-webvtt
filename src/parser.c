@@ -20,17 +20,17 @@
 #define SUPERTYPE_COUNT 0
 
 enum ts_symbol_identifiers {
-  anon_sym_id = 1,
-  anon_sym_width = 2,
-  anon_sym_lines = 3,
-  anon_sym_regionanchor = 4,
-  anon_sym_viewportanchor = 5,
-  anon_sym_scroll = 6,
-  sym_byte_order_mark = 7,
-  sym_webvtt_keyword = 8,
-  sym_region_keyword = 9,
-  sym_style_keyword = 10,
-  sym_note_keyword = 11,
+  sym_byte_order_mark = 1,
+  sym_webvtt_keyword = 2,
+  sym_region_keyword = 3,
+  sym_style_keyword = 4,
+  sym_note_keyword = 5,
+  sym_id_attribute = 6,
+  sym_width_attribute = 7,
+  sym_lines_attribute = 8,
+  sym_region_anchor_attribute = 9,
+  sym_viewport_anchor_attribute = 10,
+  sym_scroll_attribute = 11,
   sym_cue_setting_item = 12,
   sym_separator_colon = 13,
   sym_tab_separator = 14,
@@ -70,17 +70,17 @@ enum ts_symbol_identifiers {
 
 static const char * const ts_symbol_names[] = {
   [ts_builtin_sym_end] = "end",
-  [anon_sym_id] = "id",
-  [anon_sym_width] = "width",
-  [anon_sym_lines] = "lines",
-  [anon_sym_regionanchor] = "regionanchor",
-  [anon_sym_viewportanchor] = "viewportanchor",
-  [anon_sym_scroll] = "scroll",
   [sym_byte_order_mark] = "byte_order_mark",
   [sym_webvtt_keyword] = "webvtt_keyword",
   [sym_region_keyword] = "region_keyword",
   [sym_style_keyword] = "style_keyword",
   [sym_note_keyword] = "note_keyword",
+  [sym_id_attribute] = "id_attribute",
+  [sym_width_attribute] = "width_attribute",
+  [sym_lines_attribute] = "lines_attribute",
+  [sym_region_anchor_attribute] = "region_anchor_attribute",
+  [sym_viewport_anchor_attribute] = "viewport_anchor_attribute",
+  [sym_scroll_attribute] = "scroll_attribute",
   [sym_cue_setting_item] = "cue_setting_item",
   [sym_separator_colon] = "separator_colon",
   [sym_tab_separator] = "tab_separator",
@@ -120,17 +120,17 @@ static const char * const ts_symbol_names[] = {
 
 static const TSSymbol ts_symbol_map[] = {
   [ts_builtin_sym_end] = ts_builtin_sym_end,
-  [anon_sym_id] = anon_sym_id,
-  [anon_sym_width] = anon_sym_width,
-  [anon_sym_lines] = anon_sym_lines,
-  [anon_sym_regionanchor] = anon_sym_regionanchor,
-  [anon_sym_viewportanchor] = anon_sym_viewportanchor,
-  [anon_sym_scroll] = anon_sym_scroll,
   [sym_byte_order_mark] = sym_byte_order_mark,
   [sym_webvtt_keyword] = sym_webvtt_keyword,
   [sym_region_keyword] = sym_region_keyword,
   [sym_style_keyword] = sym_style_keyword,
   [sym_note_keyword] = sym_note_keyword,
+  [sym_id_attribute] = sym_id_attribute,
+  [sym_width_attribute] = sym_width_attribute,
+  [sym_lines_attribute] = sym_lines_attribute,
+  [sym_region_anchor_attribute] = sym_region_anchor_attribute,
+  [sym_viewport_anchor_attribute] = sym_viewport_anchor_attribute,
+  [sym_scroll_attribute] = sym_scroll_attribute,
   [sym_cue_setting_item] = sym_cue_setting_item,
   [sym_separator_colon] = sym_separator_colon,
   [sym_tab_separator] = sym_tab_separator,
@@ -173,30 +173,6 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = true,
   },
-  [anon_sym_id] = {
-    .visible = true,
-    .named = false,
-  },
-  [anon_sym_width] = {
-    .visible = true,
-    .named = false,
-  },
-  [anon_sym_lines] = {
-    .visible = true,
-    .named = false,
-  },
-  [anon_sym_regionanchor] = {
-    .visible = true,
-    .named = false,
-  },
-  [anon_sym_viewportanchor] = {
-    .visible = true,
-    .named = false,
-  },
-  [anon_sym_scroll] = {
-    .visible = true,
-    .named = false,
-  },
   [sym_byte_order_mark] = {
     .visible = true,
     .named = true,
@@ -214,6 +190,30 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .named = true,
   },
   [sym_note_keyword] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_id_attribute] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_width_attribute] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_lines_attribute] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_region_anchor_attribute] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_viewport_anchor_attribute] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_scroll_attribute] = {
     .visible = true,
     .named = true,
   },
@@ -491,8 +491,8 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
         'v', 47,
         'w', 46,
         0xefbb, 12,
-        0xfeff, 86,
-        0xfffe, 86,
+        0xfeff, 80,
+        0xfffe, 80,
       );
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(0);
@@ -564,16 +564,16 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'E') ADVANCE(19);
       END_STATE();
     case 15:
-      if (lookahead == 'E') ADVANCE(90);
+      if (lookahead == 'E') ADVANCE(84);
       END_STATE();
     case 16:
-      if (lookahead == 'E') ADVANCE(89);
+      if (lookahead == 'E') ADVANCE(83);
       END_STATE();
     case 17:
       if (lookahead == 'E') ADVANCE(13);
       END_STATE();
     case 18:
-      if (lookahead == 'F') ADVANCE(86);
+      if (lookahead == 'F') ADVANCE(80);
       END_STATE();
     case 19:
       if (lookahead == 'G') ADVANCE(20);
@@ -585,7 +585,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'L') ADVANCE(16);
       END_STATE();
     case 22:
-      if (lookahead == 'N') ADVANCE(88);
+      if (lookahead == 'N') ADVANCE(82);
       END_STATE();
     case 23:
       if (lookahead == 'O') ADVANCE(22);
@@ -597,7 +597,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'T') ADVANCE(30);
       END_STATE();
     case 26:
-      if (lookahead == 'T') ADVANCE(87);
+      if (lookahead == 'T') ADVANCE(81);
       END_STATE();
     case 27:
       if (lookahead == 'T') ADVANCE(15);
@@ -627,7 +627,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'c') ADVANCE(44);
       END_STATE();
     case 36:
-      if (lookahead == 'd') ADVANCE(80);
+      if (lookahead == 'd') ADVANCE(85);
       END_STATE();
     case 37:
       if (lookahead == 'd') ADVANCE(66);
@@ -645,7 +645,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'g') ADVANCE(48);
       END_STATE();
     case 42:
-      if (lookahead == 'h') ADVANCE(81);
+      if (lookahead == 'h') ADVANCE(86);
       END_STATE();
     case 43:
       if (lookahead == 'h') ADVANCE(58);
@@ -666,7 +666,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'i') ADVANCE(56);
       END_STATE();
     case 49:
-      if (lookahead == 'l') ADVANCE(85);
+      if (lookahead == 'l') ADVANCE(90);
       END_STATE();
     case 50:
       if (lookahead == 'l') ADVANCE(49);
@@ -705,16 +705,16 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == 'r') ADVANCE(55);
       END_STATE();
     case 62:
-      if (lookahead == 'r') ADVANCE(83);
+      if (lookahead == 'r') ADVANCE(88);
       END_STATE();
     case 63:
-      if (lookahead == 'r') ADVANCE(84);
+      if (lookahead == 'r') ADVANCE(89);
       END_STATE();
     case 64:
       if (lookahead == 'r') ADVANCE(67);
       END_STATE();
     case 65:
-      if (lookahead == 's') ADVANCE(82);
+      if (lookahead == 's') ADVANCE(87);
       END_STATE();
     case 66:
       if (lookahead == 't') ADVANCE(42);
@@ -781,37 +781,37 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(ts_builtin_sym_end);
       END_STATE();
     case 80:
-      ACCEPT_TOKEN(anon_sym_id);
-      END_STATE();
-    case 81:
-      ACCEPT_TOKEN(anon_sym_width);
-      END_STATE();
-    case 82:
-      ACCEPT_TOKEN(anon_sym_lines);
-      END_STATE();
-    case 83:
-      ACCEPT_TOKEN(anon_sym_regionanchor);
-      END_STATE();
-    case 84:
-      ACCEPT_TOKEN(anon_sym_viewportanchor);
-      END_STATE();
-    case 85:
-      ACCEPT_TOKEN(anon_sym_scroll);
-      END_STATE();
-    case 86:
       ACCEPT_TOKEN(sym_byte_order_mark);
       END_STATE();
-    case 87:
+    case 81:
       ACCEPT_TOKEN(sym_webvtt_keyword);
       END_STATE();
-    case 88:
+    case 82:
       ACCEPT_TOKEN(sym_region_keyword);
       END_STATE();
-    case 89:
+    case 83:
       ACCEPT_TOKEN(sym_style_keyword);
       END_STATE();
-    case 90:
+    case 84:
       ACCEPT_TOKEN(sym_note_keyword);
+      END_STATE();
+    case 85:
+      ACCEPT_TOKEN(sym_id_attribute);
+      END_STATE();
+    case 86:
+      ACCEPT_TOKEN(sym_width_attribute);
+      END_STATE();
+    case 87:
+      ACCEPT_TOKEN(sym_lines_attribute);
+      END_STATE();
+    case 88:
+      ACCEPT_TOKEN(sym_region_anchor_attribute);
+      END_STATE();
+    case 89:
+      ACCEPT_TOKEN(sym_viewport_anchor_attribute);
+      END_STATE();
+    case 90:
+      ACCEPT_TOKEN(sym_scroll_attribute);
       END_STATE();
     case 91:
       ACCEPT_TOKEN(sym_cue_setting_item);
@@ -1025,17 +1025,17 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
 static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   [STATE(0)] = {
     [ts_builtin_sym_end] = ACTIONS(1),
-    [anon_sym_id] = ACTIONS(1),
-    [anon_sym_width] = ACTIONS(1),
-    [anon_sym_lines] = ACTIONS(1),
-    [anon_sym_regionanchor] = ACTIONS(1),
-    [anon_sym_viewportanchor] = ACTIONS(1),
-    [anon_sym_scroll] = ACTIONS(1),
     [sym_byte_order_mark] = ACTIONS(1),
     [sym_webvtt_keyword] = ACTIONS(1),
     [sym_region_keyword] = ACTIONS(1),
     [sym_style_keyword] = ACTIONS(1),
     [sym_note_keyword] = ACTIONS(1),
+    [sym_id_attribute] = ACTIONS(1),
+    [sym_width_attribute] = ACTIONS(1),
+    [sym_lines_attribute] = ACTIONS(1),
+    [sym_region_anchor_attribute] = ACTIONS(1),
+    [sym_viewport_anchor_attribute] = ACTIONS(1),
+    [sym_scroll_attribute] = ACTIONS(1),
     [sym_separator_colon] = ACTIONS(1),
     [sym_timestamp] = ACTIONS(1),
     [sym_timestamp_arrow] = ACTIONS(1),
@@ -1111,17 +1111,17 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_source_file_repeat1,
   [80] = 8,
     ACTIONS(25), 1,
-      anon_sym_id,
+      sym_id_attribute,
     ACTIONS(27), 1,
-      anon_sym_width,
+      sym_width_attribute,
     ACTIONS(29), 1,
-      anon_sym_lines,
+      sym_lines_attribute,
     ACTIONS(31), 1,
-      anon_sym_regionanchor,
+      sym_region_anchor_attribute,
     ACTIONS(33), 1,
-      anon_sym_viewportanchor,
+      sym_viewport_anchor_attribute,
     ACTIONS(35), 1,
-      anon_sym_scroll,
+      sym_scroll_attribute,
     ACTIONS(37), 1,
       sym__line_terminator,
     STATE(6), 7,
@@ -1134,17 +1134,17 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_region_definition_block_repeat1,
   [111] = 8,
     ACTIONS(25), 1,
-      anon_sym_id,
+      sym_id_attribute,
     ACTIONS(27), 1,
-      anon_sym_width,
+      sym_width_attribute,
     ACTIONS(29), 1,
-      anon_sym_lines,
+      sym_lines_attribute,
     ACTIONS(31), 1,
-      anon_sym_regionanchor,
+      sym_region_anchor_attribute,
     ACTIONS(33), 1,
-      anon_sym_viewportanchor,
+      sym_viewport_anchor_attribute,
     ACTIONS(35), 1,
-      anon_sym_scroll,
+      sym_scroll_attribute,
     ACTIONS(39), 1,
       sym__line_terminator,
     STATE(7), 7,
@@ -1157,17 +1157,17 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_region_definition_block_repeat1,
   [142] = 8,
     ACTIONS(25), 1,
-      anon_sym_id,
+      sym_id_attribute,
     ACTIONS(27), 1,
-      anon_sym_width,
+      sym_width_attribute,
     ACTIONS(29), 1,
-      anon_sym_lines,
+      sym_lines_attribute,
     ACTIONS(31), 1,
-      anon_sym_regionanchor,
+      sym_region_anchor_attribute,
     ACTIONS(33), 1,
-      anon_sym_viewportanchor,
+      sym_viewport_anchor_attribute,
     ACTIONS(35), 1,
-      anon_sym_scroll,
+      sym_scroll_attribute,
     ACTIONS(39), 1,
       sym__line_terminator,
     STATE(8), 7,
@@ -1180,17 +1180,17 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_region_definition_block_repeat1,
   [173] = 8,
     ACTIONS(25), 1,
-      anon_sym_id,
+      sym_id_attribute,
     ACTIONS(27), 1,
-      anon_sym_width,
+      sym_width_attribute,
     ACTIONS(29), 1,
-      anon_sym_lines,
+      sym_lines_attribute,
     ACTIONS(31), 1,
-      anon_sym_regionanchor,
+      sym_region_anchor_attribute,
     ACTIONS(33), 1,
-      anon_sym_viewportanchor,
+      sym_viewport_anchor_attribute,
     ACTIONS(35), 1,
-      anon_sym_scroll,
+      sym_scroll_attribute,
     ACTIONS(41), 1,
       sym__line_terminator,
     STATE(8), 7,
@@ -1203,17 +1203,17 @@ static const uint16_t ts_small_parse_table[] = {
       aux_sym_region_definition_block_repeat1,
   [204] = 8,
     ACTIONS(43), 1,
-      anon_sym_id,
+      sym_id_attribute,
     ACTIONS(46), 1,
-      anon_sym_width,
+      sym_width_attribute,
     ACTIONS(49), 1,
-      anon_sym_lines,
+      sym_lines_attribute,
     ACTIONS(52), 1,
-      anon_sym_regionanchor,
+      sym_region_anchor_attribute,
     ACTIONS(55), 1,
-      anon_sym_viewportanchor,
+      sym_viewport_anchor_attribute,
     ACTIONS(58), 1,
-      anon_sym_scroll,
+      sym_scroll_attribute,
     ACTIONS(61), 1,
       sym__line_terminator,
     STATE(8), 7,
@@ -1483,22 +1483,22 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(134), 1,
       sym__line_terminator,
     ACTIONS(132), 6,
-      anon_sym_id,
-      anon_sym_width,
-      anon_sym_lines,
-      anon_sym_regionanchor,
-      anon_sym_viewportanchor,
-      anon_sym_scroll,
+      sym_id_attribute,
+      sym_width_attribute,
+      sym_lines_attribute,
+      sym_region_anchor_attribute,
+      sym_viewport_anchor_attribute,
+      sym_scroll_attribute,
   [584] = 2,
     ACTIONS(138), 1,
       sym__line_terminator,
     ACTIONS(136), 6,
-      anon_sym_id,
-      anon_sym_width,
-      anon_sym_lines,
-      anon_sym_regionanchor,
-      anon_sym_viewportanchor,
-      anon_sym_scroll,
+      sym_id_attribute,
+      sym_width_attribute,
+      sym_lines_attribute,
+      sym_region_anchor_attribute,
+      sym_viewport_anchor_attribute,
+      sym_scroll_attribute,
   [596] = 2,
     ACTIONS(140), 3,
       sym_cue_name,
@@ -1523,12 +1523,12 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(150), 1,
       sym__line_terminator,
     ACTIONS(148), 6,
-      anon_sym_id,
-      anon_sym_width,
-      anon_sym_lines,
-      anon_sym_regionanchor,
-      anon_sym_viewportanchor,
-      anon_sym_scroll,
+      sym_id_attribute,
+      sym_width_attribute,
+      sym_lines_attribute,
+      sym_region_anchor_attribute,
+      sym_viewport_anchor_attribute,
+      sym_scroll_attribute,
   [632] = 2,
     ACTIONS(152), 3,
       sym_cue_name,
@@ -1573,32 +1573,32 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(170), 1,
       sym__line_terminator,
     ACTIONS(168), 6,
-      anon_sym_id,
-      anon_sym_width,
-      anon_sym_lines,
-      anon_sym_regionanchor,
-      anon_sym_viewportanchor,
-      anon_sym_scroll,
+      sym_id_attribute,
+      sym_width_attribute,
+      sym_lines_attribute,
+      sym_region_anchor_attribute,
+      sym_viewport_anchor_attribute,
+      sym_scroll_attribute,
   [692] = 2,
     ACTIONS(174), 1,
       sym__line_terminator,
     ACTIONS(172), 6,
-      anon_sym_id,
-      anon_sym_width,
-      anon_sym_lines,
-      anon_sym_regionanchor,
-      anon_sym_viewportanchor,
-      anon_sym_scroll,
+      sym_id_attribute,
+      sym_width_attribute,
+      sym_lines_attribute,
+      sym_region_anchor_attribute,
+      sym_viewport_anchor_attribute,
+      sym_scroll_attribute,
   [704] = 2,
     ACTIONS(178), 1,
       sym__line_terminator,
     ACTIONS(176), 6,
-      anon_sym_id,
-      anon_sym_width,
-      anon_sym_lines,
-      anon_sym_regionanchor,
-      anon_sym_viewportanchor,
-      anon_sym_scroll,
+      sym_id_attribute,
+      sym_width_attribute,
+      sym_lines_attribute,
+      sym_region_anchor_attribute,
+      sym_viewport_anchor_attribute,
+      sym_scroll_attribute,
   [716] = 5,
     ACTIONS(113), 1,
       sym_cue_name,

@@ -39,7 +39,7 @@ NOTE This is a simple space separated comment
   (items
     (comment_block
       (space_separator)
-      (line_with_terminator)
+      (line_without_arrow)
       (line_terminator))))
 
 =======================
@@ -59,7 +59,7 @@ NOTE	This is a simple tab separated comment
   (items
     (comment_block
       (tab_separator)
-      (line_with_terminator)
+      (line_without_arrow)
       (line_terminator))))
  
 =======================
@@ -80,7 +80,7 @@ This is a simple comment
   (items
     (comment_block
       (line_terminator)
-      (line_with_terminator)
+      (line_without_arrow)
       (line_terminator))))
  
 =======================
@@ -102,9 +102,9 @@ This is a simple comment
   (items
     (comment_block
       (space_separator)
-      (line_with_terminator)
-      (line_with_terminator)
-      (line_with_terminator)
+      (line_without_arrow)
+      (line_without_arrow)
+      (line_without_arrow)
       (line_terminator))))
 
 =======================
@@ -126,9 +126,9 @@ This is a simple comment
   (items
     (comment_block
       (tab_separator)
-      (line_with_terminator)
-      (line_with_terminator)
-      (line_with_terminator)
+      (line_without_arrow)
+      (line_without_arrow)
+      (line_without_arrow)
       (line_terminator))))
  
 =======================
@@ -151,8 +151,8 @@ This is a simple comment
   (items
     (comment_block
       (line_terminator)
-      (line_with_terminator)
-      (line_with_terminator)
-      (line_with_terminator)
+      (line_without_arrow)
+      (line_without_arrow)
+      (line_without_arrow)
       (line_terminator))))
  

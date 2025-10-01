@@ -10,6 +10,8 @@
 module.exports = grammar({
   name: "webvtt",
 
+  externals: $ => [$.line_without_arrow, $.cue_name],
+
   rules: {
     source_file: $ => seq(
       $.webvtt_block,
@@ -48,22 +50,22 @@ module.exports = grammar({
     ),
 
     region_identifier: $ => seq(
-      "id", $.separator_colon, $.line_with_terminator
+      "id", $.separator_colon, $.line_without_arrow
     ),
     region_width: $ => seq(
-      "width", $.separator_colon, $.line_with_terminator
+      "width", $.separator_colon, $.line_without_arrow
     ),
     region_lines: $ => seq(
-      "lines", $.separator_colon, $.line_with_terminator
+      "lines", $.separator_colon, $.line_without_arrow
     ),
     region_anchor: $ => seq(
-      "regionanchor", $.separator_colon, $.line_with_terminator
+      "regionanchor", $.separator_colon, $.line_without_arrow
     ),
     region_viewport_anchor: $ => seq(
-      "viewportanchor", $.separator_colon, $.line_with_terminator
+      "viewportanchor", $.separator_colon, $.line_without_arrow
     ),
     region_scroll: $ => seq(
-      "scroll", $.separator_colon, $.line_with_terminator
+      "scroll", $.separator_colon, $.line_without_arrow
     ),
 
     comment_block: $ => seq(
@@ -73,26 +75,26 @@ module.exports = grammar({
         $.space_separator,
         $.line_terminator
       ),
-      repeat($.line_with_terminator),
+      repeat($.line_without_arrow),
       $.line_terminator
     ),
 
     style_block: $ => seq(
       "STYLE",
       $.line_terminator,
-      repeat($.line_with_terminator),
+      repeat($.line_without_arrow),
       $.line_terminator
     ),
 
     cue_block: $ => seq(
-      optional($.cue_identifier),
+      optional($.cue_name),
       $.timestamp_range_line,
       optional(
         $.cue_settings
       ),
       $.line_terminator,
       repeat(
-        $.line_with_terminator
+        $.line_without_arrow
       ),
       $.line_terminator
     ),
@@ -120,10 +122,6 @@ module.exports = grammar({
 
     byte_order_mark: $ => /(\uEFBBBF|\uFEFF|\uFFFE)/,
 
-    webvtt_header: $ => /WEBVTT/,
-
-    cue_identifier: $ => /((((([^NSR\n\r][^\n\r]{5})|((N|S|R)[^OTE\n\r][^\n\r]{4})|((NO|ST|RE)[^TYG\n\r][^\n\r]{3})|((NOT|STY|REG)[^ELI\n\r][^\n\r]{2})|((STYL|REGI)[^EO\n\r][^\n\r])|(REGIO[^N\n\r])))((([^\n\r]{0,6}(\n|\r\n?))|([^\n\r]{4}((-(([^-\n\r][^\n\r])|([^\n\r][^>\n\r]))[^\n\r]*)|([^\n\r]{1,5})|([^-\n\r][^\r\n]{2}((([^-\n\r][^\n\r]{2})|([^\n\r][^-\n\r][^\n\r])|([^\n\r][^\n\r][^>\n\r]))))[^\n\r]*)(\n|\r\n?)))))|((([^\n\r]{3}[^E\r\n])|([^N\r\n][^\n\r]{3})|([^\r\n][^O\r\n][^\n\r]{2})|([^\r\n]{2}[^T\r\n][^\n\r])|([^\n\r]{4}[^E\r\n]))(\n|\r\n?))|((([^S\n\r][^\n\r]{4})|([^\n\r][^T\n\r][^\n\r]{3})|([^\n\r]{2}[^Y\n\r][^\n\r]{2})|([^\n\r]{3}[^L\n\r][^\n\r]))(\n|\r\n?))|([^\n\r]{1,3})(\n|\r\n?))/,
-
     cue_setting_item: $ => /[^ :\n\r]+/,
     separator_colon: $ => /:/,
 
@@ -135,10 +133,6 @@ module.exports = grammar({
 
     timestamp: $ => /([0-9]{2,}:)?([0-9]{2}:[0-9]{2}\.[0-9]{3})/,
 
-    timestamp_range_arrow: $ => / --> /,
     timestamp_arrow: $ => /-->/,
-
-    line_with_terminator: $ => /((.{10}(([^-\n][^\n][^\n])|([^\n][^-\n][^\n])|([^\n][^\n][^>\n]))[^\n]*)|([^\n]{1,12}))(\n|\r|\n\r|\r\n)/,
-    line_without_terminator: $ => /((.{10}(([^-\n][^\n][^\n])|([^\n][^-\n][^\n])|([^\n][^\n][^>\n]))[^\n]*)|([^\n]{1,12}))/
   }
 });

@@ -58,14 +58,14 @@ Welcome to You Laugh You Lose
     (line_terminator))
   (items
     (cue_block
-      (cue_identifier)
+      (cue_name)
       (timestamp_range_line
         (timestamp)
         (space_separator)
         (timestamp_arrow)
         (timestamp))
       (line_terminator)
-      (line_with_terminator)
+      (line_without_arrow)
       (line_terminator))))
 
 =======================
@@ -91,7 +91,7 @@ Welcome to You Laugh You Lose
         (timestamp_arrow)
         (timestamp))
       (line_terminator)
-      (line_with_terminator)
+      (line_without_arrow)
       (line_terminator))))
 
 
@@ -120,9 +120,9 @@ Aaaaah!
         (timestamp_arrow)
         (timestamp))
       (line_terminator)
-      (line_with_terminator)
-      (line_with_terminator)
-      (line_with_terminator)
+      (line_without_arrow)
+      (line_without_arrow)
+      (line_without_arrow)
       (line_terminator))))
 
 
@@ -175,7 +175,7 @@ Welcome to You Laugh You Lose
             (timestamp_arrow)
             (timestamp))
           (line_terminator)
-          (line_with_terminator)
+          (line_without_arrow)
           (line_terminator))))
 
 =======================
@@ -189,6 +189,20 @@ Welcome to You Laugh You Lose
 
 
 ---
+
+    (source_file
+      (webvtt_block
+        (line_terminator))
+      (items
+        (cue_block
+          (timestamp_range_line
+            (timestamp)
+            (space_separator)
+            (timestamp_arrow)
+            (timestamp))
+          (line_terminator)
+          (line_without_arrow)
+          (line_terminator))))
 
 =======================
 Cue block with only one tab separated cue timings
@@ -213,7 +227,7 @@ Welcome to You Laugh You Lose
             (timestamp_arrow)
             (timestamp))
           (line_terminator)
-          (line_with_terminator)
+          (line_without_arrow)
           (line_terminator))))
 
 =======================
@@ -222,7 +236,7 @@ Cue block with more than one tab separated cue timings
 
 WEBVTT
 
-00:01.000				-->									00:05.123
+00:01.000		-->									00:05.123
 Welcome to You Laugh You Lose
 
 
@@ -239,6 +253,6 @@ Welcome to You Laugh You Lose
             (timestamp_arrow)
             (timestamp))
           (line_terminator)
-          (line_with_terminator)
+          (line_without_arrow)
           (line_terminator))))
 

@@ -12,7 +12,7 @@
           "named": true
         },
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         },
         {
@@ -35,7 +35,7 @@
       "required": true,
       "types": [
         {
-          "type": "cue_identifier",
+          "type": "cue_name",
           "named": true
         },
         {
@@ -47,7 +47,7 @@
           "named": true
         },
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         },
         {
@@ -131,7 +131,7 @@
       "required": true,
       "types": [
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         },
         {
@@ -193,7 +193,7 @@
       "required": true,
       "types": [
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         },
         {
@@ -212,7 +212,7 @@
       "required": true,
       "types": [
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         },
         {
@@ -231,7 +231,7 @@
       "required": true,
       "types": [
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         },
         {
@@ -250,7 +250,7 @@
       "required": true,
       "types": [
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         },
         {
@@ -269,7 +269,7 @@
       "required": true,
       "types": [
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         },
         {
@@ -312,7 +312,7 @@
           "named": true
         },
         {
-          "type": "line_with_terminator",
+          "type": "line_without_arrow",
           "named": true
         }
       ]
@@ -381,7 +381,7 @@
     "named": true
   },
   {
-    "type": "cue_identifier",
+    "type": "cue_name",
     "named": true
   },
   {
@@ -397,7 +397,7 @@
     "named": true
   },
   {
-    "type": "line_with_terminator",
+    "type": "line_without_arrow",
     "named": true
   },
   {

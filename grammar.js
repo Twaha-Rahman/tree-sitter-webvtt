@@ -91,16 +91,6 @@ module.exports = grammar({
 
     webvtt_header: $ => /WEBVTT/,
 
-    //cue_identifier: $ => /(((([^NS\n\r][^\n\r]{4})|((N|S)[^OT\n\r][^\n\r]{3})|((NO|ST)[^TY\n\r][^\n\r]{2})|((NOT|STY)[^EL\n\r][^\n\r]{1})|(STYL[^E\n\r]))((([^\n\r]{0,5}(\n|\r\n?))|([^\n\r]{5}((-(([^-\n\r][^\n\r])|([^\n\r][^>\n\r])))|([^-\n\r][^\r\n]{2}((([^-\n\r][^\n\r]{2})|([^\n\r][^-\n\r][^\n\r])|([^\n\r][^\n\r][^>\n\r])))))([^\n\r]*)))))|(((NOT[^E\r\n])|(([^N\n\r][^\n\r]{3}|(N[^O\n\r][^\n\r]{2})|NO[^T\n\r][^\n\r]{1})))(\n|\r\n?))|([^\n\r]{1,3})(\n|\r\n?))/,
-
-    // Fixed one below. Prev one above.
-
-    //cue_identifier: $ => /^(((([^NS\n\r][^\n\r]{4})|((N|S)[^OT\n\r][^\n\r]{3})|((NO|ST)[^TY\n\r][^\n\r]{2})|((NOT|STY)[^EL\n\r][^\n\r]{1})|(STYL[^E\n\r]))((([^\n\r]{0,7}(\n|\r\n?))|([^\n\r]{5}((-(([^-\n\r][^\n\r])|([^\n\r][^>\n\r])))|([^\n\r]{1,5})|([^-\n\r][^\r\n]{2}((([^-\n\r][^\n\r]{2})|([^\n\r][^-\n\r][^\n\r])|([^\n\r][^\n\r][^>\n\r])))))([^\n\r]*)))))|(((NOT[^E\r\n])|(([^N\n\r][^\n\r]{3}|(N[^O\n\r][^\n\r]{2})|NO[^T\n\r][^\n\r]{1})))(\n|\r\n?))|([^\n\r]{1,3})(\n|\r\n?))/,
-
-    // Last full working below
-
-    // cue_identifier: $ => /((((([^NSR\n\r][^\n\r]{4})|((N|S|R)[^OET\n\r][^\n\r]{3})|((NO|ST|RE)[^TGY\n\r][^\n\r]{2})|((NOT|STY|REG)[^ELI\n\r][^\n\r]{1})|((STYL|REGI)[^EO\n\r])|(REGIO[^N\n\r])))((([^\n\r]{0,7}(\n|\r\n?))|([^\n\r]{5}((-(([^-\n\r][^\n\r])|([^\n\r][^>\n\r])))|([^-\n\r][^\r\n]{2}((([^-\n\r][^\n\r]{2})|([^\n\r][^-\n\r][^\n\r])|([^\n\r][^\n\r][^>\n\r])))))([^\n\r]*)))))|(((NOT[^E\r\n])|(REGIO[^N\r\n])|(([^NSR\n\r][^\n\r]{3})|(N[^O\n\r][^\n\r]{2})|(S[^T\n\r][^\n\r]{2})|(R[^E\n\r][^\n\r]{2})|NO[^T\n\r][^\n\r]{1}|ST[^Y\n\r][^\n\r]{1}|RE[^G\n\r][^\n\r]{1}))(\n|\r\n?))|([^\n\r]{1,3})(\n|\r\n?))/,
-
     cue_identifier: $ => /((((([^NSR\n\r][^\n\r]{5})|((N|S|R)[^OTE\n\r][^\n\r]{4})|((NO|ST|RE)[^TYG\n\r][^\n\r]{3})|((NOT|STY|REG)[^ELI\n\r][^\n\r]{2})|((STYL|REGI)[^EO\n\r][^\n\r])|(REGIO[^N\n\r])))((([^\n\r]{0,6}(\n|\r\n?))|([^\n\r]{4}((-(([^-\n\r][^\n\r])|([^\n\r][^>\n\r]))[^\n\r]*)|([^\n\r]{1,5})|([^-\n\r][^\r\n]{2}((([^-\n\r][^\n\r]{2})|([^\n\r][^-\n\r][^\n\r])|([^\n\r][^\n\r][^>\n\r]))))[^\n\r]*)(\n|\r\n?)))))|((([^\n\r]{3}[^E\r\n])|([^N\r\n][^\n\r]{3})|([^\r\n][^O\r\n][^\n\r]{2})|([^\r\n]{2}[^T\r\n][^\n\r])|([^\n\r]{4}[^E\r\n]))(\n|\r\n?))|((([^S\n\r][^\n\r]{4})|([^\n\r][^T\n\r][^\n\r]{3})|([^\n\r]{2}[^Y\n\r][^\n\r]{2})|([^\n\r]{3}[^L\n\r][^\n\r]))(\n|\r\n?))|([^\n\r]{1,3})(\n|\r\n?))/,
 
     cue_setting_item: $ => /[^ :\n\r]+/,

@@ -97,8 +97,33 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "region_setting_component"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "region_identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "region_width"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "region_lines"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "region_anchor"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "region_viewport_anchor"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "region_scroll"
+              }
+            ]
           }
         },
         {
@@ -107,9 +132,107 @@
         }
       ]
     },
-    "region_setting_component": {
-      "type": "PATTERN",
-      "value": "[^\\n\\r]+(\\n|\\r|\\r\\n)"
+    "region_identifier": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "id"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "separator_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_with_terminator"
+        }
+      ]
+    },
+    "region_width": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "width"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "separator_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_with_terminator"
+        }
+      ]
+    },
+    "region_lines": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "lines"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "separator_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_with_terminator"
+        }
+      ]
+    },
+    "region_anchor": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "regionanchor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "separator_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_with_terminator"
+        }
+      ]
+    },
+    "region_viewport_anchor": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "viewportanchor"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "separator_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_with_terminator"
+        }
+      ]
+    },
+    "region_scroll": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "scroll"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "separator_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_with_terminator"
+        }
+      ]
     },
     "comment_block": {
       "type": "SEQ",

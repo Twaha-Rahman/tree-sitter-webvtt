@@ -123,6 +123,25 @@
     }
   },
   {
+    "type": "region_anchor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_with_terminator",
+          "named": true
+        },
+        {
+          "type": "separator_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "region_definition_block",
     "named": true,
     "fields": {},
@@ -135,11 +154,126 @@
           "named": true
         },
         {
-          "type": "region_setting_component",
+          "type": "region_anchor",
+          "named": true
+        },
+        {
+          "type": "region_identifier",
+          "named": true
+        },
+        {
+          "type": "region_lines",
+          "named": true
+        },
+        {
+          "type": "region_scroll",
+          "named": true
+        },
+        {
+          "type": "region_viewport_anchor",
+          "named": true
+        },
+        {
+          "type": "region_width",
           "named": true
         },
         {
           "type": "tabs_or_spaces",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "region_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_with_terminator",
+          "named": true
+        },
+        {
+          "type": "separator_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "region_lines",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_with_terminator",
+          "named": true
+        },
+        {
+          "type": "separator_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "region_scroll",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_with_terminator",
+          "named": true
+        },
+        {
+          "type": "separator_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "region_viewport_anchor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_with_terminator",
+          "named": true
+        },
+        {
+          "type": "separator_colon",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "region_width",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "line_with_terminator",
+          "named": true
+        },
+        {
+          "type": "separator_colon",
           "named": true
         }
       ]
@@ -255,6 +389,10 @@
     "named": true
   },
   {
+    "type": "id",
+    "named": false
+  },
+  {
     "type": "line_terminator",
     "named": true
   },
@@ -263,8 +401,16 @@
     "named": true
   },
   {
-    "type": "region_setting_component",
-    "named": true
+    "type": "lines",
+    "named": false
+  },
+  {
+    "type": "regionanchor",
+    "named": false
+  },
+  {
+    "type": "scroll",
+    "named": false
   },
   {
     "type": "separator_colon",
@@ -289,5 +435,13 @@
   {
     "type": "timestamp_arrow",
     "named": true
+  },
+  {
+    "type": "viewportanchor",
+    "named": false
+  },
+  {
+    "type": "width",
+    "named": false
   }
 ]

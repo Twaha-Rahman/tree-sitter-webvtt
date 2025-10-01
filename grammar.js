@@ -34,11 +34,37 @@ module.exports = grammar({
       "REGION",
       optional($.tabs_or_spaces),
       $.line_terminator,
-      repeat($.region_setting_component),
+      repeat(
+        choice(
+          $.region_identifier,
+          $.region_width,
+          $.region_lines,
+          $.region_anchor,
+          $.region_viewport_anchor,
+          $.region_scroll
+        )
+      ),
       $.line_terminator
     ),
 
-    region_setting_component: $ => /[^\n\r]+(\n|\r|\r\n)/,
+    region_identifier: $ => seq(
+      "id", $.separator_colon, $.line_with_terminator
+    ),
+    region_width: $ => seq(
+      "width", $.separator_colon, $.line_with_terminator
+    ),
+    region_lines: $ => seq(
+      "lines", $.separator_colon, $.line_with_terminator
+    ),
+    region_anchor: $ => seq(
+      "regionanchor", $.separator_colon, $.line_with_terminator
+    ),
+    region_viewport_anchor: $ => seq(
+      "viewportanchor", $.separator_colon, $.line_with_terminator
+    ),
+    region_scroll: $ => seq(
+      "scroll", $.separator_colon, $.line_with_terminator
+    ),
 
     comment_block: $ => seq(
       "NOTE",

@@ -1,7 +1,13 @@
-(webvtt_block) @keyword.control
+(webvtt_block) @keyword
 
 (region_definition_block) @keyword
-(region_setting_component) @function.built-in
+
+(region_identifier) @function.built-in
+(region_width) @function.built-in
+(region_lines) @function.built-in
+(region_anchor) @function.built-in
+(region_viewport_anchor) @function.built-in
+(region_scroll) @function.built-in
 
 (comment_block) @keyword
 (style_block) @keyword
@@ -9,7 +15,7 @@
 (cue_identifier) @keyword
 (cue_setting) @function.built-in
 
-(cue_setting (separator_colon) @keyword)
+(separator_colon) @keyword
 
 
 ; Only highlight the first few line_with_terminator in style blocks

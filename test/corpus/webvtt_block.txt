@@ -1,0 +1,39 @@
+=======================
+WebVTT header with only 1 line terminator
+=======================
+
+WEBVTT
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator)))
+
+=======================
+WebVTT header with more than 1 line terminator
+=======================
+
+WEBVTT
+
+
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator)))
+
+=======================
+WebVTT header misspelled
+:error
+=======================
+
+WebvtT
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator)))

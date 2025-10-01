@@ -1,0 +1,158 @@
+=======================
+Comment block with NOTE misspelled
+:error
+=======================
+
+WEBVTT
+
+nOTE This is a simple space separated comment
+
+
+---
+
+=======================
+Comment block where the last line separator is missing
+:error
+=======================
+
+WEBVTT
+
+NOTE This is a simple space separated comment
+
+---
+
+
+=======================
+Comment block with space separated comment
+=======================
+
+WEBVTT
+
+NOTE This is a simple space separated comment
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (comment_block
+      (space_separator)
+      (line_with_terminator)
+      (line_terminator))))
+
+=======================
+Comment block with tab separated comment
+=======================
+
+WEBVTT
+
+NOTE	This is a simple tab separated comment
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (comment_block
+      (tab_separator)
+      (line_with_terminator)
+      (line_terminator))))
+ 
+=======================
+Comment block with line separator separated comment
+=======================
+
+WEBVTT
+
+NOTE
+This is a simple comment
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (comment_block
+      (line_terminator)
+      (line_with_terminator)
+      (line_terminator))))
+ 
+=======================
+Comment block with multiple lines with the initial separator being the space separator
+=======================
+
+WEBVTT
+
+NOTE This is a simple comment
+This is a simple comment
+This is a simple comment
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (comment_block
+      (space_separator)
+      (line_with_terminator)
+      (line_with_terminator)
+      (line_with_terminator)
+      (line_terminator))))
+
+=======================
+Comment block with multiple lines with the initial separator being the tab separator
+=======================
+
+WEBVTT
+
+NOTE	This is a simple comment
+This is a simple comment
+This is a simple comment
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (comment_block
+      (tab_separator)
+      (line_with_terminator)
+      (line_with_terminator)
+      (line_with_terminator)
+      (line_terminator))))
+ 
+=======================
+Comment block with multiple lines with the initial separator being the line separator
+=======================
+
+WEBVTT
+
+NOTE
+This is a simple comment
+This is a simple comment
+This is a simple comment
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (comment_block
+      (line_terminator)
+      (line_with_terminator)
+      (line_with_terminator)
+      (line_with_terminator)
+      (line_terminator))))
+ 

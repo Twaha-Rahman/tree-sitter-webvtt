@@ -16,7 +16,11 @@
           "named": true
         },
         {
-          "type": "tab_or_space",
+          "type": "space_separator",
+          "named": true
+        },
+        {
+          "type": "tab_separator",
           "named": true
         }
       ]
@@ -189,11 +193,19 @@
       "required": true,
       "types": [
         {
+          "type": "space_separator",
+          "named": true
+        },
+        {
+          "type": "tab_separator",
+          "named": true
+        },
+        {
           "type": "timestamp",
           "named": true
         },
         {
-          "type": "timestamp_range_arrow",
+          "type": "timestamp_arrow",
           "named": true
         }
       ]
@@ -259,7 +271,11 @@
     "named": true
   },
   {
-    "type": "tab_or_space",
+    "type": "space_separator",
+    "named": true
+  },
+  {
+    "type": "tab_separator",
     "named": true
   },
   {
@@ -271,7 +287,7 @@
     "named": true
   },
   {
-    "type": "timestamp_range_arrow",
+    "type": "timestamp_arrow",
     "named": true
   }
 ]

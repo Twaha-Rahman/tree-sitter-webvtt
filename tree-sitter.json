@@ -6,11 +6,11 @@
       "camelcase": "WebVtt",
       "title": "WebVTT",
       "scope": "source.webvtt",
-      "file-types": [
-        "webvtt"
-      ],
+      "file-types": ["vtt"],
+      "first-line-regex": "^WEBVTT(\n|\r\n?)",
       "injection-regex": "^webvtt$",
-      "class-name": "TreeSitterWebvtt"
+      "class-name": "TreeSitterWebvtt",
+      "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {
@@ -24,7 +24,7 @@
       }
     ],
     "links": {
-      "repository": "https://github.com/tree-sitter/tree-sitter-webvtt"
+      "repository": "https://github.com/Twaha-Rahman/tree-sitter-webvtt"
     }
   },
   "bindings": {
@@ -37,3 +37,4 @@
     "zig": false
   }
 }
+

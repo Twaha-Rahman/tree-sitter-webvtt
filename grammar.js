@@ -23,6 +23,13 @@ module.exports = grammar({
       $.region_definition_block
     ),
 
+    webvtt_block: $ => seq(
+      optional($.byte_order_mark),
+      /WEBVTT/,
+      $.line_terminator,
+      repeat($.line_terminator)
+    ),
+
     region_definition_block: $ => seq(
       "REGION",
       optional($.tabs_or_spaces),
@@ -33,17 +40,11 @@ module.exports = grammar({
 
     region_setting_component: $ => /[^\n\r]+(\n|\r|\r\n)/,
 
-    webvtt_block: $ => seq(
-      optional($.byte_order_mark),
-      /WEBVTT/,
-      $.line_terminator,
-      repeat($.line_terminator)
-    ),
-
     comment_block: $ => seq(
       "NOTE",
       choice(
-        $.tab_or_space,
+        $.tab_separator,
+        $.space_separator,
         $.line_terminator
       ),
       repeat($.line_with_terminator),
@@ -83,7 +84,11 @@ module.exports = grammar({
 
     timestamp_range_line: $ => seq(
       $.timestamp,
-      $.timestamp_range_arrow,
+      choice(
+        repeat1($.space_separator),
+        repeat1($.tab_separator)
+      ),
+      $.timestamp_arrow,
       $.timestamp,
     ),
 
@@ -96,13 +101,16 @@ module.exports = grammar({
     cue_setting_item: $ => /[^ :\n\r]+/,
     separator_colon: $ => /:/,
 
-    tab_or_space: $ => /[ \t]/,
+    tab_separator: $ => /\t/,
+    space_separator: $ => / /,
+
     tabs_or_spaces: $ => /[ \t]+/,
     line_terminator: $ => /(\n|\r|\n\r)/,
 
-    timestamp: $ => /([0-9]*:)?([0-9]*:[0-9]*\.[0-9]{2,3})/,
+    timestamp: $ => /([0-9]{2,}:)?([0-9]{2}:[0-9]{2}\.[0-9]{3})/,
 
     timestamp_range_arrow: $ => / --> /,
+    timestamp_arrow: $ => /-->/,
 
     line_with_terminator: $ => /((.{10}(([^-\n][^\n][^\n])|([^\n][^-\n][^\n])|([^\n][^\n][^>\n]))[^\n]*)|([^\n]{1,12}))(\n|\r|\n\r|\r\n)/,
     line_without_terminator: $ => /((.{10}(([^-\n][^\n][^\n])|([^\n][^-\n][^\n])|([^\n][^\n][^>\n]))[^\n]*)|([^\n]{1,12}))/

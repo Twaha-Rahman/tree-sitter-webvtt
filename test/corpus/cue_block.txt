@@ -1,0 +1,244 @@
+=======================
+Cue block with invalid cue name (NOTE)
+:error
+=======================
+
+WEBVTT
+
+NOTE
+00:01.000 --> 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+=======================
+Cue block with invalid cue name (STYLE)
+:error
+=======================
+
+WEBVTT
+
+STYLE
+00:01.000 --> 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+=======================
+Cue block with invalid cue name (REGION)
+:error
+=======================
+
+WEBVTT
+
+REGION
+00:01.000 --> 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+=======================
+Cue block with cue name
+=======================
+
+WEBVTT
+
+Intro
+00:01.000 --> 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (cue_block
+      (cue_identifier)
+      (timestamp_range_line
+        (timestamp)
+        (space_separator)
+        (timestamp_arrow)
+        (timestamp))
+      (line_terminator)
+      (line_with_terminator)
+      (line_terminator))))
+
+=======================
+Cue block without cue name
+=======================
+
+WEBVTT
+
+00:01.000 --> 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (cue_block
+      (timestamp_range_line
+        (timestamp)
+        (space_separator)
+        (timestamp_arrow)
+        (timestamp))
+      (line_terminator)
+      (line_with_terminator)
+      (line_terminator))))
+
+
+=======================
+Cue block with more than one line
+=======================
+
+WEBVTT
+
+00:01.000 --> 00:10.100
+Welcome to You Laugh You Lose!
+YouTube's most favourite show!
+Aaaaah!
+
+
+---
+
+(source_file
+  (webvtt_block
+    (line_terminator))
+  (items
+    (cue_block
+      (timestamp_range_line
+        (timestamp)
+        (space_separator)
+        (timestamp_arrow)
+        (timestamp))
+      (line_terminator)
+      (line_with_terminator)
+      (line_with_terminator)
+      (line_with_terminator)
+      (line_terminator))))
+
+
+=======================
+Cue block with mangled arrow
+:error
+=======================
+
+WEBVTT
+
+00:01.000 -- 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+=======================
+Cue block with one timestamp being invalid
+:error
+=======================
+
+WEBVTT
+
+00:001.000 --> 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+=======================
+Cue block with only one space separated cue timings
+=======================
+
+WEBVTT
+
+00:01.000 --> 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (line_terminator))
+      (items
+        (cue_block
+          (timestamp_range_line
+            (timestamp)
+            (space_separator)
+            (timestamp_arrow)
+            (timestamp))
+          (line_terminator)
+          (line_with_terminator)
+          (line_terminator))))
+
+=======================
+Cue block with more than one space separated cue timings
+=======================
+
+WEBVTT
+
+00:01.000   -->       00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+=======================
+Cue block with only one tab separated cue timings
+=======================
+
+WEBVTT
+
+00:01.000	-->	00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (line_terminator))
+      (items
+        (cue_block
+          (timestamp_range_line
+            (timestamp)
+            (tab_separator)
+            (timestamp_arrow)
+            (timestamp))
+          (line_terminator)
+          (line_with_terminator)
+          (line_terminator))))
+
+=======================
+Cue block with more than one tab separated cue timings
+=======================
+
+WEBVTT
+
+00:01.000				-->									00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (line_terminator))
+      (items
+        (cue_block
+          (timestamp_range_line
+            (timestamp)
+            (tab_separator)
+            (timestamp_arrow)
+            (timestamp))
+          (line_terminator)
+          (line_with_terminator)
+          (line_terminator))))
+

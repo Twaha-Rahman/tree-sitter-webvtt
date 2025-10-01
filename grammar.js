@@ -27,7 +27,7 @@ module.exports = grammar({
 
     webvtt_block: $ => seq(
       optional($.byte_order_mark),
-      /WEBVTT/,
+      "WEBVTT",
       $.line_terminator,
       repeat($.line_terminator)
     ),

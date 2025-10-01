@@ -20,7 +20,7 @@
 #define SUPERTYPE_COUNT 0
 
 enum ts_symbol_identifiers {
-  aux_sym_webvtt_block_token1 = 1,
+  anon_sym_WEBVTT = 1,
   anon_sym_REGION = 2,
   anon_sym_id = 3,
   anon_sym_width = 4,
@@ -68,7 +68,7 @@ enum ts_symbol_identifiers {
 
 static const char * const ts_symbol_names[] = {
   [ts_builtin_sym_end] = "end",
-  [aux_sym_webvtt_block_token1] = "webvtt_block_token1",
+  [anon_sym_WEBVTT] = "WEBVTT",
   [anon_sym_REGION] = "REGION",
   [anon_sym_id] = "id",
   [anon_sym_width] = "width",
@@ -116,7 +116,7 @@ static const char * const ts_symbol_names[] = {
 
 static const TSSymbol ts_symbol_map[] = {
   [ts_builtin_sym_end] = ts_builtin_sym_end,
-  [aux_sym_webvtt_block_token1] = aux_sym_webvtt_block_token1,
+  [anon_sym_WEBVTT] = anon_sym_WEBVTT,
   [anon_sym_REGION] = anon_sym_REGION,
   [anon_sym_id] = anon_sym_id,
   [anon_sym_width] = anon_sym_width,
@@ -167,8 +167,8 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = true,
   },
-  [aux_sym_webvtt_block_token1] = {
-    .visible = false,
+  [anon_sym_WEBVTT] = {
+    .visible = true,
     .named = false,
   },
   [anon_sym_REGION] = {
@@ -748,7 +748,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(ts_builtin_sym_end);
       END_STATE();
     case 80:
-      ACCEPT_TOKEN(aux_sym_webvtt_block_token1);
+      ACCEPT_TOKEN(anon_sym_WEBVTT);
       END_STATE();
     case 81:
       ACCEPT_TOKEN(anon_sym_REGION);
@@ -973,7 +973,7 @@ static const TSLexerMode ts_lex_modes[STATE_COUNT] = {
 static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   [STATE(0)] = {
     [ts_builtin_sym_end] = ACTIONS(1),
-    [aux_sym_webvtt_block_token1] = ACTIONS(1),
+    [anon_sym_WEBVTT] = ACTIONS(1),
     [anon_sym_REGION] = ACTIONS(1),
     [anon_sym_id] = ACTIONS(1),
     [anon_sym_width] = ACTIONS(1),
@@ -993,7 +993,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   [STATE(1)] = {
     [sym_source_file] = STATE(64),
     [sym_webvtt_block] = STATE(7),
-    [aux_sym_webvtt_block_token1] = ACTIONS(3),
+    [anon_sym_WEBVTT] = ACTIONS(3),
     [sym_byte_order_mark] = ACTIONS(5),
   },
 };
@@ -1629,7 +1629,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_line_terminator,
   [826] = 1,
     ACTIONS(261), 1,
-      aux_sym_webvtt_block_token1,
+      anon_sym_WEBVTT,
   [830] = 1,
     ACTIONS(263), 1,
       sym_separator_colon,

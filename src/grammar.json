@@ -55,7 +55,7 @@
           ]
         },
         {
-          "type": "PATTERN",
+          "type": "STRING",
           "value": "WEBVTT"
         },
         {

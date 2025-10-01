@@ -377,6 +377,10 @@
     "named": false
   },
   {
+    "type": "WEBVTT",
+    "named": false
+  },
+  {
     "type": "byte_order_mark",
     "named": true
   },

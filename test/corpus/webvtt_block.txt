@@ -1,17 +1,26 @@
 =======================
-WebVTT header with only 1 line terminator
+WebVTT block with only 1 line terminator
+:error
 =======================
 
 WEBVTT
 
 ---
 
+=======================
+WebVTT block with mandatory 2 line terminators
+=======================
+
+WEBVTT
+
+
+---
+
 (source_file
-  (webvtt_block
-    (line_terminator)))
+  (webvtt_block))
 
 =======================
-WebVTT header with more than 1 line terminator
+WebVTT block with more than 2 line terminators
 =======================
 
 WEBVTT
@@ -22,11 +31,10 @@ WEBVTT
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator)))
+  (webvtt_block))
 
 =======================
-WebVTT header misspelled
+WebVTT block misspelled
 :error
 =======================
 
@@ -35,5 +43,27 @@ WebvtT
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator)))
+  (webvtt_block))
+
+=======================
+WebVTT block with space separated extra text
+=======================
+
+WEBVTT
+
+---
+
+(source_file
+  (webvtt_block))
+
+=======================
+WebVTT block with tab separated extra text
+=======================
+
+WEBVTT
+
+---
+
+(source_file
+  (webvtt_block))
+

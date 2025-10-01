@@ -9,33 +9,40 @@
 
 module.exports = grammar({
   name: "webvtt",
+  conflicts: $ => [[$.source_file]],
 
   externals: $ => [$.line_without_arrow, $.cue_name],
 
   rules: {
     source_file: $ => seq(
       $.webvtt_block,
-      repeat($.items)
+      repeat($._group1),
+      repeat($._line_terminator),
+      repeat($._group2),
+      repeat($._line_terminator)
     ),
 
-    items: $ => choice(
-      $.style_block,
-      $.comment_block,
-      $.cue_block,
-      $.region_definition_block
-    ),
+    // Group1 will come before group2 according to the W3C WebVTT spec
+    _group1: $ => prec(3, choice($.region_definition_block, $.style_block, $.comment_block)),
+    _group2: $ => choice($.cue_block, $.comment_block),
 
-    webvtt_block: $ => seq(
+    webvtt_block: $ => prec.left(1, seq(
       optional($.byte_order_mark),
       "WEBVTT",
-      $.line_terminator,
-      repeat($.line_terminator)
-    ),
+      optional(
+        seq(
+          choice($.space_separator, $.tab_separator),
+          $.line_without_arrow
+        )
+      ),
+      $._line_terminator,
+      repeat($._line_terminator)
+    )),
 
     region_definition_block: $ => seq(
-      "REGION",
+      $.region_keyword,
       optional($.tabs_or_spaces),
-      $.line_terminator,
+      $._line_terminator,
       repeat(
         choice(
           $.region_identifier,
@@ -46,8 +53,10 @@ module.exports = grammar({
           $.region_scroll
         )
       ),
-      $.line_terminator
+      $._line_terminator
     ),
+
+    region_keyword: $ => /REGION/,
 
     region_identifier: $ => seq(
       "id", $.separator_colon, $.line_without_arrow
@@ -73,17 +82,17 @@ module.exports = grammar({
       choice(
         $.tab_separator,
         $.space_separator,
-        $.line_terminator
+        $._line_terminator
       ),
       repeat($.line_without_arrow),
-      $.line_terminator
+      $._line_terminator
     ),
 
     style_block: $ => seq(
       "STYLE",
-      $.line_terminator,
+      $._line_terminator,
       repeat($.line_without_arrow),
-      $.line_terminator
+      $._line_terminator
     ),
 
     cue_block: $ => seq(
@@ -92,11 +101,11 @@ module.exports = grammar({
       optional(
         $.cue_settings
       ),
-      $.line_terminator,
+      $._line_terminator,
       repeat(
         $.line_without_arrow
       ),
-      $.line_terminator
+      $._line_terminator
     ),
 
     cue_settings: $ => seq(
@@ -127,9 +136,9 @@ module.exports = grammar({
 
     tab_separator: () => /\t/,
     space_separator: () => / /,
-
     tabs_or_spaces: () => /[ \t]+/,
-    line_terminator: () => /\n|\r\n?/,
+
+    _line_terminator: () => /\n|\r\n?/,
 
     timestamp: () => /([0-9]{2,}:)?[0-9]{2}:[0-9]{2}\.[0-9]{3}/,
     timestamp_arrow: () => /-->/,

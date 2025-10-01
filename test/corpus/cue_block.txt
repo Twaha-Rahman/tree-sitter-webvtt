@@ -54,9 +54,7 @@ Welcome to You Laugh You Lose
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (cue_block
       (cue_name)
       (timestamp_range_line
@@ -64,9 +62,7 @@ Welcome to You Laugh You Lose
         (space_separator)
         (timestamp_arrow)
         (timestamp))
-      (line_terminator)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
 
 =======================
 Cue block without cue name
@@ -81,18 +77,14 @@ Welcome to You Laugh You Lose
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (cue_block
       (timestamp_range_line
         (timestamp)
         (space_separator)
         (timestamp_arrow)
         (timestamp))
-      (line_terminator)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
 
 
 =======================
@@ -110,20 +102,16 @@ Aaaaah!
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (cue_block
       (timestamp_range_line
         (timestamp)
         (space_separator)
         (timestamp_arrow)
         (timestamp))
-      (line_terminator)
       (line_without_arrow)
       (line_without_arrow)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
 
 
 =======================
@@ -165,18 +153,14 @@ Welcome to You Laugh You Lose
 ---
 
     (source_file
-      (webvtt_block
-        (line_terminator))
-      (items
+      (webvtt_block)
         (cue_block
           (timestamp_range_line
             (timestamp)
             (space_separator)
             (timestamp_arrow)
             (timestamp))
-          (line_terminator)
-          (line_without_arrow)
-          (line_terminator))))
+          (line_without_arrow)))
 
 =======================
 Cue block with more than one space separated cue timings
@@ -191,18 +175,14 @@ Welcome to You Laugh You Lose
 ---
 
     (source_file
-      (webvtt_block
-        (line_terminator))
-      (items
+      (webvtt_block)
         (cue_block
           (timestamp_range_line
             (timestamp)
             (space_separator)
             (timestamp_arrow)
             (timestamp))
-          (line_terminator)
-          (line_without_arrow)
-          (line_terminator))))
+          (line_without_arrow)))
 
 =======================
 Cue block with only one tab separated cue timings
@@ -217,18 +197,14 @@ Welcome to You Laugh You Lose
 ---
 
     (source_file
-      (webvtt_block
-        (line_terminator))
-      (items
+      (webvtt_block)
         (cue_block
           (timestamp_range_line
             (timestamp)
             (tab_separator)
             (timestamp_arrow)
             (timestamp))
-          (line_terminator)
-          (line_without_arrow)
-          (line_terminator))))
+          (line_without_arrow)))
 
 =======================
 Cue block with more than one tab separated cue timings
@@ -243,16 +219,12 @@ Welcome to You Laugh You Lose
 ---
 
     (source_file
-      (webvtt_block
-        (line_terminator))
-      (items
+      (webvtt_block)
         (cue_block
           (timestamp_range_line
             (timestamp)
             (tab_separator)
             (timestamp_arrow)
             (timestamp))
-          (line_terminator)
-          (line_without_arrow)
-          (line_terminator))))
+          (line_without_arrow)))
 

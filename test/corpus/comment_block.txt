@@ -34,13 +34,10 @@ NOTE This is a simple space separated comment
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (comment_block
       (space_separator)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
 
 =======================
 Comment block with tab separated comment
@@ -54,13 +51,10 @@ NOTE	This is a simple tab separated comment
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (comment_block
       (tab_separator)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
  
 =======================
 Comment block with line separator separated comment
@@ -75,13 +69,9 @@ This is a simple comment
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (comment_block
-      (line_terminator)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
  
 =======================
 Comment block with multiple lines with the initial separator being the space separator
@@ -97,15 +87,12 @@ This is a simple comment
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (comment_block
       (space_separator)
       (line_without_arrow)
       (line_without_arrow)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
 
 =======================
 Comment block with multiple lines with the initial separator being the tab separator
@@ -121,15 +108,12 @@ This is a simple comment
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (comment_block
       (tab_separator)
       (line_without_arrow)
       (line_without_arrow)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
  
 =======================
 Comment block with multiple lines with the initial separator being the line separator
@@ -146,13 +130,9 @@ This is a simple comment
 ---
 
 (source_file
-  (webvtt_block
-    (line_terminator))
-  (items
+  (webvtt_block)
     (comment_block
-      (line_terminator)
       (line_without_arrow)
       (line_without_arrow)
-      (line_without_arrow)
-      (line_terminator))))
+      (line_without_arrow)))
  

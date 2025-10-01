@@ -5,10 +5,14 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "line_without_arrow",
+          "named": true
+        },
+        {
+          "type": "note_keyword",
           "named": true
         },
         {
@@ -282,10 +286,14 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "line_without_arrow",
+          "named": true
+        },
+        {
+          "type": "style_keyword",
           "named": true
         }
       ]
@@ -324,7 +332,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "byte_order_mark",
@@ -341,21 +349,13 @@
         {
           "type": "tab_separator",
           "named": true
+        },
+        {
+          "type": "webvtt_keyword",
+          "named": true
         }
       ]
     }
-  },
-  {
-    "type": "NOTE",
-    "named": false
-  },
-  {
-    "type": "STYLE",
-    "named": false
-  },
-  {
-    "type": "WEBVTT",
-    "named": false
   },
   {
     "type": "byte_order_mark",
@@ -382,6 +382,10 @@
     "named": false
   },
   {
+    "type": "note_keyword",
+    "named": true
+  },
+  {
     "type": "region_keyword",
     "named": true
   },
@@ -399,6 +403,10 @@
   },
   {
     "type": "space_separator",
+    "named": true
+  },
+  {
+    "type": "style_keyword",
     "named": true
   },
   {
@@ -420,6 +428,10 @@
   {
     "type": "viewportanchor",
     "named": false
+  },
+  {
+    "type": "webvtt_keyword",
+    "named": true
   },
   {
     "type": "width",

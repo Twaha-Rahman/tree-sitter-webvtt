@@ -17,7 +17,7 @@ WEBVTT
 ---
 
 (source_file
-  (webvtt_block))
+  (webvtt_block (webvtt_keyword)))
 
 =======================
 WebVTT block with more than 2 line terminators
@@ -31,7 +31,7 @@ WEBVTT
 ---
 
 (source_file
-  (webvtt_block))
+  (webvtt_block (webvtt_keyword)))
 
 =======================
 WebVTT block misspelled
@@ -43,7 +43,7 @@ WebvtT
 ---
 
 (source_file
-  (webvtt_block))
+  (webvtt_block (webvtt_keyword)))
 
 =======================
 WebVTT block with space separated extra text
@@ -54,7 +54,7 @@ WEBVTT
 ---
 
 (source_file
-  (webvtt_block))
+  (webvtt_block (webvtt_keyword)))
 
 =======================
 WebVTT block with tab separated extra text
@@ -65,5 +65,5 @@ WEBVTT
 ---
 
 (source_file
-  (webvtt_block))
+  (webvtt_block (webvtt_keyword)))
 

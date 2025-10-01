@@ -34,8 +34,9 @@ NOTE This is a simple space separated comment
 ---
 
 (source_file
-  (webvtt_block)
+  (webvtt_block (webvtt_keyword))
     (comment_block
+    (note_keyword)
       (space_separator)
       (line_without_arrow)))
 
@@ -51,8 +52,9 @@ NOTE	This is a simple tab separated comment
 ---
 
 (source_file
-  (webvtt_block)
+  (webvtt_block (webvtt_keyword))
     (comment_block
+    (note_keyword)
       (tab_separator)
       (line_without_arrow)))
  
@@ -69,8 +71,9 @@ This is a simple comment
 ---
 
 (source_file
-  (webvtt_block)
+  (webvtt_block (webvtt_keyword))
     (comment_block
+    (note_keyword)
       (line_without_arrow)))
  
 =======================
@@ -87,8 +90,9 @@ This is a simple comment
 ---
 
 (source_file
-  (webvtt_block)
+  (webvtt_block (webvtt_keyword))
     (comment_block
+    (note_keyword)
       (space_separator)
       (line_without_arrow)
       (line_without_arrow)
@@ -108,8 +112,9 @@ This is a simple comment
 ---
 
 (source_file
-  (webvtt_block)
+  (webvtt_block (webvtt_keyword))
     (comment_block
+    (note_keyword)
       (tab_separator)
       (line_without_arrow)
       (line_without_arrow)
@@ -130,8 +135,9 @@ This is a simple comment
 ---
 
 (source_file
-  (webvtt_block)
+  (webvtt_block (webvtt_keyword))
     (comment_block
+    (note_keyword)
       (line_without_arrow)
       (line_without_arrow)
       (line_without_arrow)))

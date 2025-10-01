@@ -28,7 +28,7 @@ module.exports = grammar({
 
     webvtt_block: $ => prec.left(1, seq(
       optional($.byte_order_mark),
-      "WEBVTT",
+      $.webvtt_keyword,
       optional(
         seq(
           choice($.space_separator, $.tab_separator),
@@ -56,8 +56,6 @@ module.exports = grammar({
       $._line_terminator
     ),
 
-    region_keyword: $ => /REGION/,
-
     region_identifier: $ => seq(
       "id", $.separator_colon, $.line_without_arrow
     ),
@@ -77,8 +75,9 @@ module.exports = grammar({
       "scroll", $.separator_colon, $.line_without_arrow
     ),
 
+
     comment_block: $ => seq(
-      "NOTE",
+      $.note_keyword,
       choice(
         $.tab_separator,
         $.space_separator,
@@ -89,7 +88,7 @@ module.exports = grammar({
     ),
 
     style_block: $ => seq(
-      "STYLE",
+      $.style_keyword,
       $._line_terminator,
       repeat($.line_without_arrow),
       $._line_terminator
@@ -130,6 +129,19 @@ module.exports = grammar({
     ),
 
     byte_order_mark: () => /\uEFBBBF|\uFEFF|\uFFFE/,
+
+    webvtt_keyword: $ => /WEBVTT/,
+    region_keyword: $ => /REGION/,
+    style_keyword: $ => /STYLE/,
+    note_keyword: $ => /NOTE/,
+
+    // REGION component attributes
+    id_attribute: $ => /id/,
+    width_attribute: $ => /width/,
+    lines_attribute: $ => /lines/,
+    region_anchor_attribute: $ => /regionanchor/,
+    viewport_anchor_attribute: $ => /viewportanchor/,
+    scroll_attribute: $ => /scroll/,
 
     cue_setting_item: () => /[^ :\n\r]+/,
     separator_colon: () => /:/,

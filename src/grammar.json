@@ -73,27 +73,6 @@
         }
       ]
     },
-    "components": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "style_block"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "comment_block"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "cue_block"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "region_definition_block"
-        }
-      ]
-    },
     "webvtt_block": {
       "type": "PREC_LEFT",
       "value": 1,
@@ -113,8 +92,8 @@
             ]
           },
           {
-            "type": "STRING",
-            "value": "WEBVTT"
+            "type": "SYMBOL",
+            "name": "webvtt_keyword"
           },
           {
             "type": "CHOICE",
@@ -220,10 +199,6 @@
           "name": "_line_terminator"
         }
       ]
-    },
-    "region_keyword": {
-      "type": "PATTERN",
-      "value": "REGION"
     },
     "region_identifier": {
       "type": "SEQ",
@@ -331,8 +306,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "NOTE"
+          "type": "SYMBOL",
+          "name": "note_keyword"
         },
         {
           "type": "CHOICE",
@@ -368,8 +343,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "STYLE"
+          "type": "SYMBOL",
+          "name": "style_keyword"
         },
         {
           "type": "SYMBOL",
@@ -508,6 +483,46 @@
     "byte_order_mark": {
       "type": "PATTERN",
       "value": "\\uEFBBBF|\\uFEFF|\\uFFFE"
+    },
+    "webvtt_keyword": {
+      "type": "PATTERN",
+      "value": "WEBVTT"
+    },
+    "region_keyword": {
+      "type": "PATTERN",
+      "value": "REGION"
+    },
+    "style_keyword": {
+      "type": "PATTERN",
+      "value": "STYLE"
+    },
+    "note_keyword": {
+      "type": "PATTERN",
+      "value": "NOTE"
+    },
+    "id_attribute": {
+      "type": "PATTERN",
+      "value": "id"
+    },
+    "width_attribute": {
+      "type": "PATTERN",
+      "value": "width"
+    },
+    "lines_attribute": {
+      "type": "PATTERN",
+      "value": "lines"
+    },
+    "region_anchor_attribute": {
+      "type": "PATTERN",
+      "value": "regionanchor"
+    },
+    "viewport_anchor_attribute": {
+      "type": "PATTERN",
+      "value": "viewportanchor"
+    },
+    "scroll_attribute": {
+      "type": "PATTERN",
+      "value": "scroll"
     },
     "cue_setting_item": {
       "type": "PATTERN",

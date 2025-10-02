@@ -8,10 +8,6 @@
       "required": true,
       "types": [
         {
-          "type": "line_without_arrow",
-          "named": true
-        },
-        {
           "type": "note_keyword",
           "named": true
         },
@@ -21,6 +17,10 @@
         },
         {
           "type": "tab_separator",
+          "named": true
+        },
+        {
+          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -43,7 +43,7 @@
           "named": true
         },
         {
-          "type": "line_without_arrow",
+          "type": "text_including_terminator",
           "named": true
         },
         {
@@ -100,15 +100,15 @@
       "required": true,
       "types": [
         {
-          "type": "line_without_arrow",
-          "named": true
-        },
-        {
           "type": "region_anchor_attribute",
           "named": true
         },
         {
           "type": "separator_colon",
+          "named": true
+        },
+        {
+          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -170,11 +170,11 @@
           "named": true
         },
         {
-          "type": "line_without_arrow",
+          "type": "separator_colon",
           "named": true
         },
         {
-          "type": "separator_colon",
+          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -189,15 +189,15 @@
       "required": true,
       "types": [
         {
-          "type": "line_without_arrow",
-          "named": true
-        },
-        {
           "type": "lines_attribute",
           "named": true
         },
         {
           "type": "separator_colon",
+          "named": true
+        },
+        {
+          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -212,15 +212,15 @@
       "required": true,
       "types": [
         {
-          "type": "line_without_arrow",
-          "named": true
-        },
-        {
           "type": "scroll_attribute",
           "named": true
         },
         {
           "type": "separator_colon",
+          "named": true
+        },
+        {
+          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -235,11 +235,11 @@
       "required": true,
       "types": [
         {
-          "type": "line_without_arrow",
+          "type": "separator_colon",
           "named": true
         },
         {
-          "type": "separator_colon",
+          "type": "text_including_terminator",
           "named": true
         },
         {
@@ -258,11 +258,11 @@
       "required": true,
       "types": [
         {
-          "type": "line_without_arrow",
+          "type": "separator_colon",
           "named": true
         },
         {
-          "type": "separator_colon",
+          "type": "text_including_terminator",
           "named": true
         },
         {
@@ -313,11 +313,11 @@
       "required": true,
       "types": [
         {
-          "type": "line_without_arrow",
+          "type": "style_keyword",
           "named": true
         },
         {
-          "type": "style_keyword",
+          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -363,15 +363,15 @@
           "named": true
         },
         {
-          "type": "line_without_arrow",
-          "named": true
-        },
-        {
           "type": "space_separator",
           "named": true
         },
         {
           "type": "tab_separator",
+          "named": true
+        },
+        {
+          "type": "text_before_terminator",
           "named": true
         },
         {
@@ -395,10 +395,6 @@
   },
   {
     "type": "id_attribute",
-    "named": true
-  },
-  {
-    "type": "line_without_arrow",
     "named": true
   },
   {
@@ -439,6 +435,14 @@
   },
   {
     "type": "tabs_or_spaces",
+    "named": true
+  },
+  {
+    "type": "text_before_terminator",
+    "named": true
+  },
+  {
+    "type": "text_including_terminator",
     "named": true
   },
   {

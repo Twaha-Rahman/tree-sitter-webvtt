@@ -20,7 +20,7 @@
 
 ; Only highlight the first few line_with_terminator in style blocks
 (style_block
-  (line_without_arrow) @constant
+  (text_including_terminator) @constant
   (#set! "priority" 105))
 
 ;; highlight timestamps as numbers
@@ -28,7 +28,8 @@
 (timestamp_range_line) @keyword
 
 ;; highlight cue content as a string
-(line_without_arrow) @string
+(text_including_terminator) @string
+(text_before_terminator) @string
 
 ;; optional: treat the whole timestamp line as a keyword-like thing
 (timestamp_range_line) @keyword

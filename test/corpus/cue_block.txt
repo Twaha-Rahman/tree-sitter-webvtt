@@ -62,7 +62,7 @@ Welcome to You Laugh You Lose
         (space_separator)
         (timestamp_arrow)
         (timestamp))
-      (line_without_arrow)))
+      (text_including_terminator)))
 
 =======================
 Cue block without cue name
@@ -84,7 +84,7 @@ Welcome to You Laugh You Lose
         (space_separator)
         (timestamp_arrow)
         (timestamp))
-      (line_without_arrow)))
+      (text_including_terminator)))
 
 
 =======================
@@ -109,9 +109,9 @@ Aaaaah!
         (space_separator)
         (timestamp_arrow)
         (timestamp))
-      (line_without_arrow)
-      (line_without_arrow)
-      (line_without_arrow)))
+      (text_including_terminator)
+      (text_including_terminator)
+      (text_including_terminator)))
 
 
 =======================
@@ -160,7 +160,7 @@ Welcome to You Laugh You Lose
             (space_separator)
             (timestamp_arrow)
             (timestamp))
-          (line_without_arrow)))
+          (text_including_terminator)))
 
 =======================
 Cue block with more than one space separated cue timings
@@ -182,7 +182,7 @@ Welcome to You Laugh You Lose
             (space_separator)
             (timestamp_arrow)
             (timestamp))
-          (line_without_arrow)))
+          (text_including_terminator)))
 
 =======================
 Cue block with only one tab separated cue timings
@@ -204,7 +204,7 @@ Welcome to You Laugh You Lose
             (tab_separator)
             (timestamp_arrow)
             (timestamp))
-          (line_without_arrow)))
+          (text_including_terminator)))
 
 =======================
 Cue block with more than one tab separated cue timings
@@ -226,5 +226,5 @@ Welcome to You Laugh You Lose
             (tab_separator)
             (timestamp_arrow)
             (timestamp))
-          (line_without_arrow)))
+          (text_including_terminator)))
 

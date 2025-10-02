@@ -116,7 +116,7 @@
                   },
                   {
                     "type": "SYMBOL",
-                    "name": "line_without_arrow"
+                    "name": "text_before_terminator"
                   }
                 ]
               },
@@ -213,7 +213,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "line_without_arrow"
+          "name": "text_including_terminator"
         }
       ]
     },
@@ -230,7 +230,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "line_without_arrow"
+          "name": "text_including_terminator"
         }
       ]
     },
@@ -247,7 +247,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "line_without_arrow"
+          "name": "text_including_terminator"
         }
       ]
     },
@@ -264,7 +264,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "line_without_arrow"
+          "name": "text_including_terminator"
         }
       ]
     },
@@ -281,7 +281,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "line_without_arrow"
+          "name": "text_including_terminator"
         }
       ]
     },
@@ -298,7 +298,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "line_without_arrow"
+          "name": "text_including_terminator"
         }
       ]
     },
@@ -330,7 +330,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "line_without_arrow"
+            "name": "text_including_terminator"
           }
         },
         {
@@ -354,7 +354,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "line_without_arrow"
+            "name": "text_including_terminator"
           }
         },
         {
@@ -402,7 +402,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "line_without_arrow"
+            "name": "text_including_terminator"
           }
         },
         {
@@ -572,7 +572,11 @@
   "externals": [
     {
       "type": "SYMBOL",
-      "name": "line_without_arrow"
+      "name": "text_including_terminator"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "text_before_terminator"
     },
     {
       "type": "SYMBOL",

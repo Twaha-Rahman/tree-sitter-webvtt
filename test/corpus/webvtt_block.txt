@@ -1,13 +1,4 @@
 =======================
-WebVTT block with only 1 line terminator
-:error
-=======================
-
-WEBVTT
-
----
-
-=======================
 WebVTT block with mandatory 2 line terminators
 =======================
 
@@ -34,11 +25,11 @@ WEBVTT
   (webvtt_block (webvtt_keyword)))
 
 =======================
-WebVTT block misspelled
+WebVTT block misspelled (It should be WEBVTT)
 :error
 =======================
 
-WebvtT
+webvtt
 
 ---
 
@@ -49,21 +40,27 @@ WebvtT
 WebVTT block with space separated extra text
 =======================
 
-WEBVTT
+WEBVTT This is some extra text that should be ok
 
 ---
 
 (source_file
-  (webvtt_block (webvtt_keyword)))
+  (webvtt_block
+  (webvtt_keyword)
+  (space_separator)
+  (text_before_terminator)))
 
 =======================
 WebVTT block with tab separated extra text
 =======================
 
-WEBVTT
+WEBVTT	This is some tab separated text that should be ok
 
 ---
 
 (source_file
-  (webvtt_block (webvtt_keyword)))
+  (webvtt_block
+  (webvtt_keyword)
+  (tab_separator)
+  (text_before_terminator)))
 

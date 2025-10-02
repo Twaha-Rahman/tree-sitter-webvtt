@@ -11,7 +11,7 @@ module.exports = grammar({
   name: "webvtt",
   conflicts: $ => [[$.source_file]],
 
-  externals: $ => [$.line_without_arrow, $.cue_name],
+  externals: $ => [$.text_including_terminator, $.text_before_terminator, $.cue_name],
 
   rules: {
     source_file: $ => seq(
@@ -32,7 +32,7 @@ module.exports = grammar({
       optional(
         seq(
           choice($.space_separator, $.tab_separator),
-          $.line_without_arrow
+          $.text_before_terminator
         )
       ),
       $._line_terminator,
@@ -57,22 +57,22 @@ module.exports = grammar({
     ),
 
     region_identifier: $ => seq(
-      $.id_attribute, $.separator_colon, $.line_without_arrow
+      $.id_attribute, $.separator_colon, $.text_including_terminator
     ),
     region_width: $ => seq(
-      $.width_attribute, $.separator_colon, $.line_without_arrow
+      $.width_attribute, $.separator_colon, $.text_including_terminator
     ),
     region_lines: $ => seq(
-      $.lines_attribute, $.separator_colon, $.line_without_arrow
+      $.lines_attribute, $.separator_colon, $.text_including_terminator
     ),
     region_anchor: $ => seq(
-      $.region_anchor_attribute, $.separator_colon, $.line_without_arrow
+      $.region_anchor_attribute, $.separator_colon, $.text_including_terminator
     ),
     region_viewport_anchor: $ => seq(
-      $.viewport_anchor_attribute, $.separator_colon, $.line_without_arrow
+      $.viewport_anchor_attribute, $.separator_colon, $.text_including_terminator
     ),
     region_scroll: $ => seq(
-      $.scroll_attribute, $.separator_colon, $.line_without_arrow
+      $.scroll_attribute, $.separator_colon, $.text_including_terminator
     ),
 
 
@@ -83,14 +83,14 @@ module.exports = grammar({
         $.space_separator,
         $._line_terminator
       ),
-      repeat($.line_without_arrow),
+      repeat($.text_including_terminator),
       $._line_terminator
     ),
 
     style_block: $ => seq(
       $.style_keyword,
       $._line_terminator,
-      repeat($.line_without_arrow),
+      repeat($.text_including_terminator),
       $._line_terminator
     ),
 
@@ -102,7 +102,7 @@ module.exports = grammar({
       ),
       $._line_terminator,
       repeat(
-        $.line_without_arrow
+        $.text_including_terminator
       ),
       $._line_terminator
     ),

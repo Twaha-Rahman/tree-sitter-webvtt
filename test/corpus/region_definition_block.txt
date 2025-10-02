@@ -11,6 +11,22 @@ id:hello
 ---
 
 ================================================
+REGION block with zero region setting (possible according to the spec)
+================================================
+WEBVTT
+
+REGION
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)))
+
+================================================
 REGION block with only 1 region setting
 ================================================
 WEBVTT

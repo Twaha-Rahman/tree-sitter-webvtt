@@ -1,4 +1,26 @@
 =======================
+WebVTT file that starts without WEBVTT text
+:error
+=======================
+
+WEBVTT
+
+
+---
+
+(source_file
+  (webvtt_block (webvtt_keyword)))
+=======================
+WebVTT block with without the mandatory 2 line terminators
+:error
+=======================
+WEBVTT
+
+---
+
+(source_file
+  (webvtt_block (webvtt_keyword)))
+=======================
 WebVTT block with mandatory 2 line terminators
 =======================
 WEBVTT

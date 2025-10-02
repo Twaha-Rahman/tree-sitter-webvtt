@@ -12,7 +12,10 @@
 (comment_block) @keyword
 
 (cue_name) @keyword
-(cue_setting) @function.built-in
+(cue_setting_name) @property
+(cue_setting_value) @string
+(webvtt_timestamp) @number
+(cue_timings) @keyword
 
 (separator_colon) @punctuation.delimiter
 (comma_symbol) @punctuation.delimiter
@@ -32,8 +35,6 @@
   (style_keyword) @keyword)
 
 ;; highlight timestamps as numbers
-(webvtt_timestamp) @number
-(cue_timings) @keyword
 
 ;; highlight cue content as a string
 (text_including_terminator) @string

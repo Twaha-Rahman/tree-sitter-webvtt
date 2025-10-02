@@ -1,4 +1,17 @@
 =======================
+Cue block with invalid cue name (-->)
+:error
+=======================
+WEBVTT
+
+-->
+00:01.000 --> 00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+=======================
 Cue block with invalid cue name (NOTE)
 :error
 =======================
@@ -38,7 +51,7 @@ Welcome to You Laugh You Lose
 ---
 
 =======================
-Cue block with cue name
+Cue block with valid cue name
 =======================
 WEBVTT
 
@@ -53,12 +66,12 @@ Welcome to You Laugh You Lose
   (webvtt_block (webvtt_keyword))
     (cue_block
       (cue_name)
-      (timestamp_range_line
-        (timestamp)
+      (cue_timings
+        (webvtt_timestamp)
         (space_separator)
         (timestamp_arrow)
         (space_separator)
-        (timestamp))
+        (webvtt_timestamp))
       (text_including_terminator)))
 
 =======================
@@ -75,12 +88,12 @@ Welcome to You Laugh You Lose
 (source_file
   (webvtt_block (webvtt_keyword))
     (cue_block
-      (timestamp_range_line
-        (timestamp)
+      (cue_timings
+        (webvtt_timestamp)
         (space_separator)
         (timestamp_arrow)
         (space_separator)
-        (timestamp))
+        (webvtt_timestamp))
       (text_including_terminator)))
 
 
@@ -100,12 +113,12 @@ Aaaaah!
 (source_file
   (webvtt_block (webvtt_keyword))
     (cue_block
-      (timestamp_range_line
-        (timestamp)
+      (cue_timings
+        (webvtt_timestamp)
         (space_separator)
         (timestamp_arrow)
         (space_separator)
-        (timestamp))
+        (webvtt_timestamp))
       (text_including_terminator)
       (text_including_terminator)
       (text_including_terminator)))
@@ -136,6 +149,75 @@ Welcome to You Laugh You Lose
 ---
 
 =======================
+Cue block with 2 digit hours in timestamp
+=======================
+WEBVTT
+
+22:01:01.000 --> 22:01:05.123
+lorem ipsum dolores...
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (space_separator)
+          (timestamp_arrow)
+          (space_separator)
+          (webvtt_timestamp))
+        (text_including_terminator)))
+
+=======================
+Cue block with more than 2 digit hours in timestamp
+=======================
+WEBVTT
+
+111:01:01.000 --> 111:01:05.123
+Just another lorem ipsum dolores...
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (space_separator)
+          (timestamp_arrow)
+          (space_separator)
+          (webvtt_timestamp))
+        (text_including_terminator)))
+
+=======================
+Cue block with only no space or tab separated cue timings
+:error
+=======================
+WEBVTT
+
+00:01.000-->00:05.123
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block (webvtt_keyword))
+        (cue_block
+          (cue_timings
+            (webvtt_timestamp)
+            (space_separator)
+            (timestamp_arrow)
+            (space_separator)
+            (webvtt_timestamp))
+          (text_including_terminator)))
+
+=======================
 Cue block with only one space separated cue timings
 =======================
 WEBVTT
@@ -149,12 +231,12 @@ Welcome to You Laugh You Lose
     (source_file
       (webvtt_block (webvtt_keyword))
         (cue_block
-          (timestamp_range_line
-            (timestamp)
+          (cue_timings
+            (webvtt_timestamp)
             (space_separator)
             (timestamp_arrow)
             (space_separator)
-            (timestamp))
+            (webvtt_timestamp))
           (text_including_terminator)))
 
 =======================
@@ -171,8 +253,8 @@ Welcome to You Laugh You Lose
     (source_file
       (webvtt_block (webvtt_keyword))
         (cue_block
-          (timestamp_range_line
-            (timestamp)
+          (cue_timings
+            (webvtt_timestamp)
             (space_separator)
             (space_separator)
             (space_separator)
@@ -184,7 +266,7 @@ Welcome to You Laugh You Lose
             (space_separator)
             (space_separator)
             (space_separator)
-            (timestamp))
+            (webvtt_timestamp))
           (text_including_terminator)))
 
 =======================
@@ -201,12 +283,12 @@ Welcome to You Laugh You Lose
     (source_file
       (webvtt_block (webvtt_keyword))
         (cue_block
-          (timestamp_range_line
-            (timestamp)
+          (cue_timings
+            (webvtt_timestamp)
             (tab_separator)
             (timestamp_arrow)
             (tab_separator)
-            (timestamp))
+            (webvtt_timestamp))
           (text_including_terminator)))
 
 =======================
@@ -223,8 +305,8 @@ Welcome to You Laugh You Lose
     (source_file
       (webvtt_block (webvtt_keyword))
         (cue_block
-          (timestamp_range_line
-            (timestamp)
+          (cue_timings
+            (webvtt_timestamp)
             (tab_separator)
             (tab_separator)
             (timestamp_arrow)
@@ -237,6 +319,159 @@ Welcome to You Laugh You Lose
             (tab_separator)
             (tab_separator)
             (tab_separator)
-            (timestamp))
+            (webvtt_timestamp))
           (text_including_terminator)))
+
+=======================
+Cue block with only one cue setting
+=======================
+WEBVTT
+
+00:01.000 --> 00:05.123 region:front
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (space_separator)
+          (timestamp_arrow)
+          (space_separator)
+          (webvtt_timestamp))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (text_including_terminator)))
+
+=======================
+Cue block with more than one cue setting
+=======================
+WEBVTT
+
+00:01.000 --> 00:05.123 region:front align:left
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (space_separator)
+          (timestamp_arrow)
+          (space_separator)
+          (webvtt_timestamp))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (text_including_terminator)))
+
+=======================
+Cue block with cue settings separated using variable number of spaces
+=======================
+WEBVTT
+
+00:01.000 --> 00:05.123    region:front            align:left
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (space_separator)
+          (timestamp_arrow)
+          (space_separator)
+          (webvtt_timestamp))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (text_including_terminator)))
+
+=======================
+Cue block with cue settings separated using variable number of tabs
+=======================
+WEBVTT
+
+00:01.000 --> 00:05.123		region:front				align:left
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (space_separator)
+          (timestamp_arrow)
+          (space_separator)
+          (webvtt_timestamp))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (text_including_terminator)))
+
+=======================
+Cue block with cue setting consisting of only cue name (no cue value)
+=======================
+WEBVTT
+
+00:01.000 --> 00:05.123 cue_name_only
+Welcome to You Laugh You Lose
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (space_separator)
+          (timestamp_arrow)
+          (space_separator)
+          (webvtt_timestamp))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)))
+        (text_including_terminator)))
 

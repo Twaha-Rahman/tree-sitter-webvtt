@@ -32,13 +32,10 @@
   (style_keyword) @keyword)
 
 ;; highlight timestamps as numbers
-(timestamp) @number
-(timestamp_range_line) @keyword
+(webvtt_timestamp) @number
+(cue_timings) @keyword
 
 ;; highlight cue content as a string
 (text_including_terminator) @string
 (text_before_terminator) @string
-
-;; optional: treat the whole timestamp line as a keyword-like thing
-(timestamp_range_line) @keyword
 

@@ -48,6 +48,48 @@ id:hello
           (text_including_terminator))))
 
 ================================================
+REGION block with trailing spaces
+================================================
+WEBVTT
+
+REGION   
+id:hello
+
+
+---
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (text_including_terminator))))
+
+================================================
+REGION block with trailing tabs
+================================================
+WEBVTT
+
+REGION		
+id:hello
+
+
+---
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (text_including_terminator))))
+
+================================================
 REGION block with more than 1 region settings
 ================================================
 WEBVTT

@@ -43,11 +43,11 @@
           "named": true
         },
         {
-          "type": "text_including_terminator",
+          "type": "cue_timings",
           "named": true
         },
         {
-          "type": "timestamp_range_line",
+          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -62,7 +62,11 @@
       "required": true,
       "types": [
         {
-          "type": "cue_setting_item",
+          "type": "cue_setting_name",
+          "named": true
+        },
+        {
+          "type": "cue_setting_value",
           "named": true
         },
         {
@@ -77,15 +81,38 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "cue_setting",
           "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "cue_timings",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "space_separator",
+          "named": true
         },
         {
-          "type": "tabs_or_spaces",
+          "type": "tab_separator",
+          "named": true
+        },
+        {
+          "type": "timestamp_arrow",
+          "named": true
+        },
+        {
+          "type": "webvtt_timestamp",
           "named": true
         }
       ]
@@ -153,10 +180,6 @@
         },
         {
           "type": "region_width",
-          "named": true
-        },
-        {
-          "type": "tabs_or_spaces",
           "named": true
         }
       ]
@@ -337,33 +360,6 @@
     }
   },
   {
-    "type": "timestamp_range_line",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "space_separator",
-          "named": true
-        },
-        {
-          "type": "tab_separator",
-          "named": true
-        },
-        {
-          "type": "timestamp",
-          "named": true
-        },
-        {
-          "type": "timestamp_arrow",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "webvtt_block",
     "named": true,
     "fields": {},
@@ -450,7 +446,11 @@
     "named": true
   },
   {
-    "type": "cue_setting_item",
+    "type": "cue_setting_name",
+    "named": true
+  },
+  {
+    "type": "cue_setting_value",
     "named": true
   },
   {
@@ -502,19 +502,11 @@
     "named": true
   },
   {
-    "type": "tabs_or_spaces",
-    "named": true
-  },
-  {
     "type": "text_before_terminator",
     "named": true
   },
   {
     "type": "text_including_terminator",
-    "named": true
-  },
-  {
-    "type": "timestamp",
     "named": true
   },
   {
@@ -527,6 +519,10 @@
   },
   {
     "type": "webvtt_keyword",
+    "named": true
+  },
+  {
+    "type": "webvtt_timestamp",
     "named": true
   },
   {

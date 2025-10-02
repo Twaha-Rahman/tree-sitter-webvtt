@@ -41,7 +41,7 @@ module.exports = grammar({
 
     region_definition_block: $ => seq(
       $.region_keyword,
-      optional($.tabs_or_spaces),
+      optional($._tabs_or_spaces),
       $._line_terminator,
       repeat(
         choice(
@@ -96,9 +96,9 @@ module.exports = grammar({
 
     cue_block: $ => seq(
       optional($.cue_name),
-      $.timestamp_range_line,
+      $.cue_timings,
       optional(
-        $.cue_settings
+        repeat($.cue_settings)
       ),
       $._line_terminator,
       repeat(
@@ -108,18 +108,22 @@ module.exports = grammar({
     ),
 
     cue_settings: $ => seq(
-      $.tabs_or_spaces,
-      repeat($.cue_setting)
+      $._tabs_or_spaces,
+      $.cue_setting
     ),
 
     cue_setting: $ => seq(
-      $.cue_setting_item,
-      $.separator_colon,
-      $.cue_setting_item,
+      alias($.cue_setting_item, $.cue_setting_name),
+      optional(
+        seq(
+          $.separator_colon,
+          alias($.cue_setting_item, $.cue_setting_value),
+        )
+      ),
     ),
 
-    timestamp_range_line: $ => seq(
-      $.timestamp,
+    cue_timings: $ => seq(
+      $.webvtt_timestamp,
       choice(
         repeat1($.space_separator),
         repeat1($.tab_separator)
@@ -129,7 +133,7 @@ module.exports = grammar({
         repeat1($.space_separator),
         repeat1($.tab_separator)
       ),
-      $.timestamp,
+      $.webvtt_timestamp,
     ),
 
     webvtt_percentage: $ => seq(
@@ -170,16 +174,20 @@ module.exports = grammar({
 
     comma_symbol: () => /,/,
 
-    cue_setting_item: () => /[^ :\n\r]+/,
+    cue_setting_item: () => /[^ \t:\n\r]+/,
 
     separator_colon: () => /:/,
     tab_separator: () => /\t/,
     space_separator: () => / /,
-    tabs_or_spaces: () => /[ \t]+/,
+    _tabs_or_spaces: () => /[ \t]+/,
 
     _line_terminator: () => /\n|\r|\r\n/,
 
-    timestamp: () => /([0-9]{2,}:)?[0-9]{2}:[0-9]{2}\.[0-9]{3}/,
+    // According to the W3C WebVTT spec, the hours in the timestamp should consist of 2 or more ASCII digits.
+    // But, it seems Tree-sitter has a bug and doen't support interval quantifier where the upperbound is omitted.
+    //
+    // As a workaround, I've set the upperbound at a large value like 9.
+    webvtt_timestamp: () => /([0-9]{2,9}:)?[0-5][0-9]:[0-5][0-9]\.[0-9]{3}/,
     timestamp_arrow: () => /-->/,
   }
 });

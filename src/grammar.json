@@ -130,7 +130,7 @@
             "name": "_line_terminator"
           },
           {
-            "type": "REPEAT",
+            "type": "REPEAT1",
             "content": {
               "type": "SYMBOL",
               "name": "_line_terminator"
@@ -230,7 +230,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "text_including_terminator"
+          "name": "webvtt_percentage"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_terminator"
         }
       ]
     },
@@ -247,7 +251,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "text_including_terminator"
+          "name": "ascii_digits_with_terminator"
         }
       ]
     },
@@ -264,7 +268,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "text_including_terminator"
+          "name": "webvtt_percentage_pair"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_terminator"
         }
       ]
     },
@@ -281,7 +289,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "text_including_terminator"
+          "name": "webvtt_percentage_pair"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_line_terminator"
         }
       ]
     },
@@ -502,8 +514,57 @@
           "name": "timestamp_arrow"
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SYMBOL",
+                "name": "space_separator"
+              }
+            },
+            {
+              "type": "REPEAT1",
+              "content": {
+                "type": "SYMBOL",
+                "name": "tab_separator"
+              }
+            }
+          ]
+        },
+        {
           "type": "SYMBOL",
           "name": "timestamp"
+        }
+      ]
+    },
+    "webvtt_percentage": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "percentage_value"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "percentage_symbol"
+        }
+      ]
+    },
+    "webvtt_percentage_pair": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "webvtt_percentage"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "comma_symbol"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "webvtt_percentage"
         }
       ]
     },
@@ -551,6 +612,61 @@
       "type": "PATTERN",
       "value": "scroll"
     },
+    "ascii_digits": {
+      "type": "PATTERN",
+      "value": "[0-9]+"
+    },
+    "ascii_digits_with_terminator": {
+      "type": "PATTERN",
+      "value": "[0-9]+(\\n|\\r|\\r\\n)"
+    },
+    "_hidden_ascii_digits": {
+      "type": "ALIAS",
+      "content": {
+        "type": "SYMBOL",
+        "name": "ascii_digits"
+      },
+      "named": false,
+      "value": "hidden_ascii_digits"
+    },
+    "percentage_value": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_hidden_ascii_digits"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "\\."
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_hidden_ascii_digits"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "percentage_symbol": {
+      "type": "PATTERN",
+      "value": "%"
+    },
+    "comma_symbol": {
+      "type": "PATTERN",
+      "value": ","
+    },
     "cue_setting_item": {
       "type": "PATTERN",
       "value": "[^ :\\n\\r]+"
@@ -573,7 +689,7 @@
     },
     "_line_terminator": {
       "type": "PATTERN",
-      "value": "\\n|\\r\\n?"
+      "value": "\\n|\\r|\\r\\n"
     },
     "timestamp": {
       "type": "PATTERN",
@@ -586,8 +702,8 @@
   },
   "extras": [
     {
-      "type": "PATTERN",
-      "value": "\\s"
+      "type": "SYMBOL",
+      "name": "byte_order_mark"
     }
   ],
   "conflicts": [

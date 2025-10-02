@@ -1,7 +1,6 @@
 ====================================================
 STYLE block with no trailing spaces or tabs
 ====================================================
-
 WEBVTT
 
 STYLE
@@ -22,7 +21,6 @@ width: 150px;
 ====================================================
 STYLE block with trailing spaces
 ====================================================
-
 WEBVTT
 
 STYLE     
@@ -37,13 +35,17 @@ width: 150px;
         (webvtt_keyword))
       (style_block
         (style_keyword)
+        (space_separator)
+        (space_separator)
+        (space_separator)
+        (space_separator)
+        (space_separator)
         (text_including_terminator)
         (text_including_terminator)))
 
 ====================================================
 STYLE block with trailing tabs
 ====================================================
-
 WEBVTT
 
 STYLE		
@@ -58,6 +60,8 @@ width: 150px;
         (webvtt_keyword))
       (style_block
         (style_keyword)
+        (tab_separator)
+        (tab_separator)
         (text_including_terminator)
         (text_including_terminator)))
 
@@ -65,7 +69,6 @@ width: 150px;
 STYLE block with mangled STYLE keyword
 :error
 ====================================================
-
 WEBVTT
 
 StYle
@@ -84,7 +87,6 @@ size: 10px;
 STYLE block with arrow in a style
 :error
 ====================================================
-
 WEBVTT
 
 STYLE

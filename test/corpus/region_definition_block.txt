@@ -1,0 +1,128 @@
+================================================
+REGION block with mangled REGION keyword
+:error
+================================================
+WEBVTT
+
+rEgIoN
+id:hello
+
+
+---
+
+================================================
+REGION block with only 1 region setting
+================================================
+WEBVTT
+
+REGION
+id:hello
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (text_including_terminator))))
+
+================================================
+REGION block with more than 1 region settings
+================================================
+WEBVTT
+
+REGION
+id:fred
+width:40%
+lines:3
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (text_including_terminator))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (ascii_digits_with_terminator))))
+
+================================================
+REGION block with all possible region settings
+================================================
+WEBVTT
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+
+---
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (text_including_terminator))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (ascii_digits_with_terminator))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+        (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+        (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (text_including_terminator))))
+

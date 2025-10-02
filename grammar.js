@@ -10,8 +10,8 @@
 module.exports = grammar({
   name: "webvtt",
   conflicts: $ => [[$.source_file]],
-
   externals: $ => [$.text_including_terminator, $.text_before_terminator, $.cue_name],
+  extras: $ => [$.byte_order_mark],
 
   rules: {
     source_file: $ => seq(
@@ -36,7 +36,7 @@ module.exports = grammar({
         )
       ),
       $._line_terminator,
-      repeat($._line_terminator)
+      repeat1($._line_terminator)
     )),
 
     region_definition_block: $ => seq(
@@ -60,16 +60,16 @@ module.exports = grammar({
       $.id_attribute, $.separator_colon, $.text_including_terminator
     ),
     region_width: $ => seq(
-      $.width_attribute, $.separator_colon, $.text_including_terminator
+      $.width_attribute, $.separator_colon, $.webvtt_percentage, $._line_terminator
     ),
     region_lines: $ => seq(
-      $.lines_attribute, $.separator_colon, $.text_including_terminator
+      $.lines_attribute, $.separator_colon, $.ascii_digits_with_terminator
     ),
     region_anchor: $ => seq(
-      $.region_anchor_attribute, $.separator_colon, $.text_including_terminator
+      $.region_anchor_attribute, $.separator_colon, $.webvtt_percentage_pair, $._line_terminator
     ),
     region_viewport_anchor: $ => seq(
-      $.viewport_anchor_attribute, $.separator_colon, $.text_including_terminator
+      $.viewport_anchor_attribute, $.separator_colon, $.webvtt_percentage_pair, $._line_terminator
     ),
     region_scroll: $ => seq(
       $.scroll_attribute, $.separator_colon, $.text_including_terminator
@@ -125,32 +125,59 @@ module.exports = grammar({
         repeat1($.tab_separator)
       ),
       $.timestamp_arrow,
+      choice(
+        repeat1($.space_separator),
+        repeat1($.tab_separator)
+      ),
       $.timestamp,
+    ),
+
+    webvtt_percentage: $ => seq(
+      $.percentage_value,
+      $.percentage_symbol
+    ),
+
+    webvtt_percentage_pair: $ => seq(
+      $.webvtt_percentage,
+      $.comma_symbol,
+      $.webvtt_percentage,
     ),
 
     byte_order_mark: () => /\uEFBBBF|\uFEFF|\uFFFE/,
 
-    webvtt_keyword: $ => /WEBVTT/,
-    region_keyword: $ => /REGION/,
-    style_keyword: $ => /STYLE/,
-    note_keyword: $ => /NOTE/,
+    webvtt_keyword: () => /WEBVTT/,
+    region_keyword: () => /REGION/,
+    style_keyword: () => /STYLE/,
+    note_keyword: () => /NOTE/,
 
     // REGION component attributes
-    id_attribute: $ => /id/,
-    width_attribute: $ => /width/,
-    lines_attribute: $ => /lines/,
-    region_anchor_attribute: $ => /regionanchor/,
-    viewport_anchor_attribute: $ => /viewportanchor/,
-    scroll_attribute: $ => /scroll/,
+    id_attribute: () => /id/,
+    width_attribute: () => /width/,
+    lines_attribute: () => /lines/,
+    region_anchor_attribute: () => /regionanchor/,
+    viewport_anchor_attribute: () => /viewportanchor/,
+    scroll_attribute: () => /scroll/,
+
+    ascii_digits: () => /[0-9]+/,
+    ascii_digits_with_terminator: () => /[0-9]+(\n|\r|\r\n)/,
+    _hidden_ascii_digits: $ => alias($.ascii_digits, "hidden_ascii_digits"),
+
+    percentage_value: $ => seq(
+      $._hidden_ascii_digits,
+      optional(seq(/\./, $._hidden_ascii_digits)),
+    ),
+    percentage_symbol: () => /%/,
+
+    comma_symbol: () => /,/,
 
     cue_setting_item: () => /[^ :\n\r]+/,
-    separator_colon: () => /:/,
 
+    separator_colon: () => /:/,
     tab_separator: () => /\t/,
     space_separator: () => / /,
     tabs_or_spaces: () => /[ \t]+/,
 
-    _line_terminator: () => /\n|\r\n?/,
+    _line_terminator: () => /\n|\r|\r\n/,
 
     timestamp: () => /([0-9]{2,}:)?[0-9]{2}:[0-9]{2}\.[0-9]{3}/,
     timestamp_arrow: () => /-->/,

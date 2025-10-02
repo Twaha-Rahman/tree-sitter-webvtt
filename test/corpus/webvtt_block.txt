@@ -1,7 +1,6 @@
 =======================
 WebVTT block with mandatory 2 line terminators
 =======================
-
 WEBVTT
 
 
@@ -13,7 +12,6 @@ WEBVTT
 =======================
 WebVTT block with more than 2 line terminators
 =======================
-
 WEBVTT
 
 
@@ -39,8 +37,8 @@ webvtt
 =======================
 WebVTT block with space separated extra text
 =======================
-
 WEBVTT This is some extra text that should be ok
+
 
 ---
 
@@ -53,8 +51,8 @@ WEBVTT This is some extra text that should be ok
 =======================
 WebVTT block with tab separated extra text
 =======================
-
 WEBVTT	This is some tab separated text that should be ok
+
 
 ---
 

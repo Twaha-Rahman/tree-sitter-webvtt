@@ -14,8 +14,18 @@
 (cue_name) @keyword
 (cue_setting) @function.built-in
 
-(separator_colon) @keyword
+(separator_colon) @punctuation.delimiter
+(comma_symbol) @punctuation.delimiter
 
+(id_attribute) @property
+(width_attribute) @property
+(lines_attribute) @property
+(region_anchor_attribute) @property
+(viewport_anchor_attribute) @property
+(scroll_attribute) @property
+
+(ascii_digits_with_terminator) @number
+(percentage_symbol) @string
 
 ; Only highlight the first few line_with_terminator in style blocks
 (style_block

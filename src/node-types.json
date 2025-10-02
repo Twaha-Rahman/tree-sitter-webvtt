@@ -92,6 +92,11 @@
     }
   },
   {
+    "type": "percentage_value",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "region_anchor",
     "named": true,
     "fields": {},
@@ -108,7 +113,7 @@
           "named": true
         },
         {
-          "type": "text_including_terminator",
+          "type": "webvtt_percentage_pair",
           "named": true
         }
       ]
@@ -189,15 +194,15 @@
       "required": true,
       "types": [
         {
+          "type": "ascii_digits_with_terminator",
+          "named": true
+        },
+        {
           "type": "lines_attribute",
           "named": true
         },
         {
           "type": "separator_colon",
-          "named": true
-        },
-        {
-          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -239,11 +244,11 @@
           "named": true
         },
         {
-          "type": "text_including_terminator",
+          "type": "viewport_anchor_attribute",
           "named": true
         },
         {
-          "type": "viewport_anchor_attribute",
+          "type": "webvtt_percentage_pair",
           "named": true
         }
       ]
@@ -262,7 +267,7 @@
           "named": true
         },
         {
-          "type": "text_including_terminator",
+          "type": "webvtt_percentage",
           "named": true
         },
         {
@@ -390,7 +395,54 @@
     }
   },
   {
+    "type": "webvtt_percentage",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "percentage_symbol",
+          "named": true
+        },
+        {
+          "type": "percentage_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "webvtt_percentage_pair",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comma_symbol",
+          "named": true
+        },
+        {
+          "type": "webvtt_percentage",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ascii_digits_with_terminator",
+    "named": true
+  },
+  {
     "type": "byte_order_mark",
+    "named": true,
+    "extra": true
+  },
+  {
+    "type": "comma_symbol",
     "named": true
   },
   {
@@ -402,6 +454,10 @@
     "named": true
   },
   {
+    "type": "hidden_ascii_digits",
+    "named": false
+  },
+  {
     "type": "id_attribute",
     "named": true
   },
@@ -411,6 +467,10 @@
   },
   {
     "type": "note_keyword",
+    "named": true
+  },
+  {
+    "type": "percentage_symbol",
     "named": true
   },
   {

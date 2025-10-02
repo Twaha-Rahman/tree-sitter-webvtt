@@ -60,3 +60,42 @@ width: 150px;
         (style_keyword)
         (text_including_terminator)
         (text_including_terminator)))
+
+====================================================
+STYLE block with mangled STYLE keyword
+:error
+====================================================
+
+WEBVTT
+
+StYle
+size: 10px;
+
+
+----
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)))
+
+====================================================
+STYLE block with arrow in a style
+:error
+====================================================
+
+WEBVTT
+
+STYLE
+size: -->;
+
+
+----
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)))
+

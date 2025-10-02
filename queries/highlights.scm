@@ -10,7 +10,6 @@
 (region_scroll) @function.built-in
 
 (comment_block) @keyword
-(style_block) @keyword
 
 (cue_name) @keyword
 (cue_setting) @function.built-in
@@ -20,8 +19,7 @@
 
 ; Only highlight the first few line_with_terminator in style blocks
 (style_block
-  (text_including_terminator) @constant
-  (#set! "priority" 105))
+  (style_keyword) @keyword)
 
 ;; highlight timestamps as numbers
 (timestamp) @number

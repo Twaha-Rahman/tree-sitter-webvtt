@@ -1,11 +1,13 @@
 WEBVTT
 
 STYLE
+width: 250px;
+height: 100px;
+/* Style blocks cannot use blank lines nor "dash dash greater than" */
 ::cue {
   background-image: linear-gradient(to bottom, dimgray, lightgray);
   color: papayawhip;
 }
-/* Style blocks cannot use blank lines nor "dash dash greater than" */
 
 NOTE comment blocks can be used between style blocks.
 

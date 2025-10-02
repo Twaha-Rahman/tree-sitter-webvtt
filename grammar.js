@@ -75,7 +75,6 @@ module.exports = grammar({
       $.scroll_attribute, $.separator_colon, $.text_including_terminator
     ),
 
-
     comment_block: $ => seq(
       $.note_keyword,
       choice(
@@ -89,6 +88,7 @@ module.exports = grammar({
 
     style_block: $ => seq(
       $.style_keyword,
+      optional(choice(repeat($.space_separator), repeat($.tab_separator))),
       $._line_terminator,
       repeat($.text_including_terminator),
       $._line_terminator

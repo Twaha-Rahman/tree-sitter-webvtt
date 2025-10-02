@@ -1,0 +1,62 @@
+====================================================
+STYLE block with no trailing spaces or tabs
+====================================================
+
+WEBVTT
+
+STYLE
+size: 10px;
+width: 150px;
+
+
+----
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (text_including_terminator)
+        (text_including_terminator)))
+
+====================================================
+STYLE block with trailing spaces
+====================================================
+
+WEBVTT
+
+STYLE     
+size: 10px;
+width: 150px;
+
+
+----
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (text_including_terminator)
+        (text_including_terminator)))
+
+====================================================
+STYLE block with trailing tabs
+====================================================
+
+WEBVTT
+
+STYLE		
+size: 10px;
+width: 150px;
+
+
+----
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (text_including_terminator)
+        (text_including_terminator)))

@@ -313,7 +313,15 @@
       "required": true,
       "types": [
         {
+          "type": "space_separator",
+          "named": true
+        },
+        {
           "type": "style_keyword",
+          "named": true
+        },
+        {
+          "type": "tab_separator",
           "named": true
         },
         {

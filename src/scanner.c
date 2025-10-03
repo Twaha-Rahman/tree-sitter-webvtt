@@ -1,10 +1,7 @@
-#include "tree_sitter/alloc.h"
-#include "tree_sitter/array.h"
 #include "tree_sitter/parser.h"
 #include <inttypes.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <stdio.h>
 
 #define INITIAL_CHARS_TO_CHECK 6
 #define ARROW_STRING_SIZE 3

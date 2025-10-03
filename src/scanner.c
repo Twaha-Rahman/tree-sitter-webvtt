@@ -18,7 +18,12 @@ int REGION_SIZE = sizeof(REGION) / sizeof(REGION[0]);
 int STYLE_SIZE = sizeof(STYLE) / sizeof(STYLE[0]);
 int NOTE_SIZE = sizeof(NOTE) / sizeof(NOTE[0]);
 
-enum TokenType { TEXT_INCLUDING_TERMINATOR, TEXT_BEFORE_TERMINATOR, CUE_NAME };
+enum TokenType {
+  TEXT_INCLUDING_TERMINATOR,
+  TEXT_BEFORE_TERMINATOR,
+  CUE_NAME,
+  ERROR_SENTINEL
+};
 
 enum ParseResult { INVALID_TOKEN, VALID_TEXT, VALID_CUE_NAME };
 
@@ -40,6 +45,11 @@ void tree_sitter_webvtt_external_scanner_deserialize(void *payload,
 
 bool tree_sitter_webvtt_external_scanner_scan(void *payload, TSLexer *lexer,
                                               const bool *valid_symbols) {
+  // If TS is in error recovery, we want to opt-out of the handling it and let
+  // TS handle it itself
+  if (valid_symbols[ERROR_SENTINEL]) {
+    return false;
+  }
 
   // if we encounter an empty line, we don't want to lex it
   if (lexer->lookahead == NEWLINE_CHAR ||

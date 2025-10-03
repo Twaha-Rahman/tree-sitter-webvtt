@@ -782,6 +782,10 @@
     {
       "type": "SYMBOL",
       "name": "cue_name"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "error_sentinel"
     }
   ],
   "inline": [],

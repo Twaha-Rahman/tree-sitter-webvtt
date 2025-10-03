@@ -10,7 +10,7 @@
 module.exports = grammar({
   name: "webvtt",
   conflicts: $ => [[$.source_file]],
-  externals: $ => [$.text_including_terminator, $.text_before_terminator, $.cue_name],
+  externals: $ => [$.text_including_terminator, $.text_before_terminator, $.cue_name, $.error_sentinel],
   extras: $ => [$.byte_order_mark],
 
   rules: {

@@ -9,10 +9,10 @@
 #define LANGUAGE_VERSION 15
 #define STATE_COUNT 126
 #define LARGE_STATE_COUNT 2
-#define SYMBOL_COUNT 58
+#define SYMBOL_COUNT 59
 #define ALIAS_COUNT 5
-#define TOKEN_COUNT 27
-#define EXTERNAL_TOKEN_COUNT 3
+#define TOKEN_COUNT 28
+#define EXTERNAL_TOKEN_COUNT 4
 #define FIELD_COUNT 0
 #define MAX_ALIAS_SEQUENCE_LENGTH 6
 #define MAX_RESERVED_WORD_SET_SIZE 0
@@ -46,42 +46,43 @@ enum ts_symbol_identifiers {
   sym_text_including_terminator = 24,
   sym_text_before_terminator = 25,
   sym_cue_name = 26,
-  sym_source_file = 27,
-  sym__group1 = 28,
-  sym__group2 = 29,
-  sym_webvtt_block = 30,
-  sym_region_definition_block = 31,
-  sym_region_identifier = 32,
-  sym_region_width = 33,
-  sym_region_lines = 34,
-  sym_region_anchor = 35,
-  sym_region_viewport_anchor = 36,
-  sym_region_scroll = 37,
-  sym_comment_block = 38,
-  sym_style_block = 39,
-  sym_cue_block = 40,
-  sym_cue_settings = 41,
-  sym_cue_setting = 42,
-  sym_cue_timings = 43,
-  sym_webvtt_percentage = 44,
-  sym_webvtt_percentage_pair = 45,
-  sym__hidden_ascii_digits = 46,
-  sym_percentage_value = 47,
-  aux_sym_source_file_repeat1 = 48,
-  aux_sym_source_file_repeat2 = 49,
-  aux_sym_source_file_repeat3 = 50,
-  aux_sym_region_definition_block_repeat1 = 51,
-  aux_sym_comment_block_repeat1 = 52,
-  aux_sym_style_block_repeat1 = 53,
-  aux_sym_style_block_repeat2 = 54,
-  aux_sym_style_block_repeat3 = 55,
-  aux_sym_cue_block_repeat1 = 56,
-  aux_sym_cue_block_repeat2 = 57,
-  alias_sym_commented_text = 58,
-  alias_sym_css_style = 59,
-  alias_sym_cue_payload = 60,
-  alias_sym_cue_setting_value = 61,
-  anon_alias_sym_hidden_ascii_digits = 62,
+  sym_error_sentinel = 27,
+  sym_source_file = 28,
+  sym__group1 = 29,
+  sym__group2 = 30,
+  sym_webvtt_block = 31,
+  sym_region_definition_block = 32,
+  sym_region_identifier = 33,
+  sym_region_width = 34,
+  sym_region_lines = 35,
+  sym_region_anchor = 36,
+  sym_region_viewport_anchor = 37,
+  sym_region_scroll = 38,
+  sym_comment_block = 39,
+  sym_style_block = 40,
+  sym_cue_block = 41,
+  sym_cue_settings = 42,
+  sym_cue_setting = 43,
+  sym_cue_timings = 44,
+  sym_webvtt_percentage = 45,
+  sym_webvtt_percentage_pair = 46,
+  sym__hidden_ascii_digits = 47,
+  sym_percentage_value = 48,
+  aux_sym_source_file_repeat1 = 49,
+  aux_sym_source_file_repeat2 = 50,
+  aux_sym_source_file_repeat3 = 51,
+  aux_sym_region_definition_block_repeat1 = 52,
+  aux_sym_comment_block_repeat1 = 53,
+  aux_sym_style_block_repeat1 = 54,
+  aux_sym_style_block_repeat2 = 55,
+  aux_sym_style_block_repeat3 = 56,
+  aux_sym_cue_block_repeat1 = 57,
+  aux_sym_cue_block_repeat2 = 58,
+  alias_sym_commented_text = 59,
+  alias_sym_css_style = 60,
+  alias_sym_cue_payload = 61,
+  alias_sym_cue_setting_value = 62,
+  anon_alias_sym_hidden_ascii_digits = 63,
 };
 
 static const char * const ts_symbol_names[] = {
@@ -112,6 +113,7 @@ static const char * const ts_symbol_names[] = {
   [sym_text_including_terminator] = "attribute_value",
   [sym_text_before_terminator] = "optional_webvtt_trailing_text",
   [sym_cue_name] = "cue_name",
+  [sym_error_sentinel] = "error_sentinel",
   [sym_source_file] = "source_file",
   [sym__group1] = "_group1",
   [sym__group2] = "_group2",
@@ -178,6 +180,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_text_including_terminator] = sym_text_including_terminator,
   [sym_text_before_terminator] = sym_text_before_terminator,
   [sym_cue_name] = sym_cue_name,
+  [sym_error_sentinel] = sym_error_sentinel,
   [sym_source_file] = sym_source_file,
   [sym__group1] = sym__group1,
   [sym__group2] = sym__group2,
@@ -322,6 +325,10 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .named = true,
   },
   [sym_cue_name] = {
+    .visible = true,
+    .named = true,
+  },
+  [sym_error_sentinel] = {
     .visible = true,
     .named = true,
   },
@@ -1281,6 +1288,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_text_including_terminator] = ACTIONS(1),
     [sym_text_before_terminator] = ACTIONS(1),
     [sym_cue_name] = ACTIONS(1),
+    [sym_error_sentinel] = ACTIONS(1),
   },
   [STATE(1)] = {
     [sym_source_file] = STATE(114),
@@ -2857,12 +2865,14 @@ enum ts_external_scanner_symbol_identifiers {
   ts_external_token_text_including_terminator = 0,
   ts_external_token_text_before_terminator = 1,
   ts_external_token_cue_name = 2,
+  ts_external_token_error_sentinel = 3,
 };
 
 static const TSSymbol ts_external_scanner_symbol_map[EXTERNAL_TOKEN_COUNT] = {
   [ts_external_token_text_including_terminator] = sym_text_including_terminator,
   [ts_external_token_text_before_terminator] = sym_text_before_terminator,
   [ts_external_token_cue_name] = sym_cue_name,
+  [ts_external_token_error_sentinel] = sym_error_sentinel,
 };
 
 static const bool ts_external_scanner_states[5][EXTERNAL_TOKEN_COUNT] = {
@@ -2870,6 +2880,7 @@ static const bool ts_external_scanner_states[5][EXTERNAL_TOKEN_COUNT] = {
     [ts_external_token_text_including_terminator] = true,
     [ts_external_token_text_before_terminator] = true,
     [ts_external_token_cue_name] = true,
+    [ts_external_token_error_sentinel] = true,
   },
   [2] = {
     [ts_external_token_cue_name] = true,

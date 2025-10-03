@@ -34,7 +34,6 @@ NOTE This is a simple space separated comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (space_separator)
       (text_including_terminator)))
 
 =======================
@@ -51,7 +50,6 @@ NOTE	This is a simple tab separated comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (tab_separator)
       (text_including_terminator)))
  
 =======================
@@ -87,7 +85,6 @@ This is a simple comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (space_separator)
       (text_including_terminator)
       (text_including_terminator)
       (text_including_terminator)))
@@ -108,7 +105,6 @@ This is a simple comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (tab_separator)
       (text_including_terminator)
       (text_including_terminator)
       (text_including_terminator)))

@@ -12,14 +12,6 @@
           "named": true
         },
         {
-          "type": "space_separator",
-          "named": true
-        },
-        {
-          "type": "tab_separator",
-          "named": true
-        },
-        {
           "type": "text_including_terminator",
           "named": true
         }
@@ -99,14 +91,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "space_separator",
-          "named": true
-        },
-        {
-          "type": "tab_separator",
-          "named": true
-        },
         {
           "type": "timestamp_arrow",
           "named": true
@@ -341,15 +325,7 @@
       "required": true,
       "types": [
         {
-          "type": "space_separator",
-          "named": true
-        },
-        {
           "type": "style_keyword",
-          "named": true
-        },
-        {
-          "type": "tab_separator",
           "named": true
         },
         {
@@ -369,14 +345,6 @@
       "types": [
         {
           "type": "byte_order_mark",
-          "named": true
-        },
-        {
-          "type": "space_separator",
-          "named": true
-        },
-        {
-          "type": "tab_separator",
           "named": true
         },
         {
@@ -490,15 +458,7 @@
     "named": true
   },
   {
-    "type": "space_separator",
-    "named": true
-  },
-  {
     "type": "style_keyword",
-    "named": true
-  },
-  {
-    "type": "tab_separator",
     "named": true
   },
   {

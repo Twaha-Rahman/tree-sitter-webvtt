@@ -31,7 +31,7 @@ module.exports = grammar({
       $.webvtt_keyword,
       optional(
         seq(
-          choice($.space_separator, $.tab_separator),
+          choice($._space_separator, $._tab_separator),
           $.text_before_terminator
         )
       ),
@@ -78,8 +78,8 @@ module.exports = grammar({
     comment_block: $ => seq(
       $.note_keyword,
       choice(
-        $.tab_separator,
-        $.space_separator,
+        $._tab_separator,
+        $._space_separator,
         $._line_terminator
       ),
       repeat($.text_including_terminator),
@@ -88,7 +88,7 @@ module.exports = grammar({
 
     style_block: $ => seq(
       $.style_keyword,
-      optional(choice(repeat($.space_separator), repeat($.tab_separator))),
+      optional(choice(repeat($._space_separator), repeat($._tab_separator))),
       $._line_terminator,
       repeat($.text_including_terminator),
       $._line_terminator
@@ -125,13 +125,13 @@ module.exports = grammar({
     cue_timings: $ => seq(
       $.webvtt_timestamp,
       choice(
-        repeat1($.space_separator),
-        repeat1($.tab_separator)
+        repeat1($._space_separator),
+        repeat1($._tab_separator)
       ),
       $.timestamp_arrow,
       choice(
-        repeat1($.space_separator),
-        repeat1($.tab_separator)
+        repeat1($._space_separator),
+        repeat1($._tab_separator)
       ),
       $.webvtt_timestamp,
     ),
@@ -177,8 +177,8 @@ module.exports = grammar({
     cue_setting_item: () => /[^ \t:\n\r]+/,
 
     separator_colon: () => /:/,
-    tab_separator: () => /\t/,
-    space_separator: () => / /,
+    _tab_separator: () => /\t/,
+    _space_separator: () => / /,
     _tabs_or_spaces: () => /[ \t]+/,
 
     _line_terminator: () => /\n|\r|\r\n/,

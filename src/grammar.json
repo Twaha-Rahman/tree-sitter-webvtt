@@ -106,11 +106,11 @@
                     "members": [
                       {
                         "type": "SYMBOL",
-                        "name": "space_separator"
+                        "name": "_space_separator"
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "tab_separator"
+                        "name": "_tab_separator"
                       }
                     ]
                   },
@@ -326,11 +326,11 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "tab_separator"
+              "name": "_tab_separator"
             },
             {
               "type": "SYMBOL",
-              "name": "space_separator"
+              "name": "_space_separator"
             },
             {
               "type": "SYMBOL",
@@ -368,14 +368,14 @@
                   "type": "REPEAT",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "space_separator"
+                    "name": "_space_separator"
                   }
                 },
                 {
                   "type": "REPEAT",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "tab_separator"
+                    "name": "_tab_separator"
                   }
                 }
               ]
@@ -520,14 +520,14 @@
               "type": "REPEAT1",
               "content": {
                 "type": "SYMBOL",
-                "name": "space_separator"
+                "name": "_space_separator"
               }
             },
             {
               "type": "REPEAT1",
               "content": {
                 "type": "SYMBOL",
-                "name": "tab_separator"
+                "name": "_tab_separator"
               }
             }
           ]
@@ -543,14 +543,14 @@
               "type": "REPEAT1",
               "content": {
                 "type": "SYMBOL",
-                "name": "space_separator"
+                "name": "_space_separator"
               }
             },
             {
               "type": "REPEAT1",
               "content": {
                 "type": "SYMBOL",
-                "name": "tab_separator"
+                "name": "_tab_separator"
               }
             }
           ]
@@ -698,11 +698,11 @@
       "type": "PATTERN",
       "value": ":"
     },
-    "tab_separator": {
+    "_tab_separator": {
       "type": "PATTERN",
       "value": "\\t"
     },
-    "space_separator": {
+    "_space_separator": {
       "type": "PATTERN",
       "value": " "
     },

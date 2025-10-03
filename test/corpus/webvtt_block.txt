@@ -67,7 +67,6 @@ WEBVTT This is some extra text that should be ok
 (source_file
   (webvtt_block
   (webvtt_keyword)
-  (space_separator)
   (text_before_terminator)))
 
 =======================
@@ -81,6 +80,5 @@ WEBVTT	This is some tab separated text that should be ok
 (source_file
   (webvtt_block
   (webvtt_keyword)
-  (tab_separator)
   (text_before_terminator)))
 

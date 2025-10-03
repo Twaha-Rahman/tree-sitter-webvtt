@@ -68,9 +68,7 @@ Welcome to You Laugh You Lose
       (cue_name)
       (cue_timings
         (webvtt_timestamp)
-        (space_separator)
         (timestamp_arrow)
-        (space_separator)
         (webvtt_timestamp))
       (text_including_terminator)))
 
@@ -90,9 +88,7 @@ Welcome to You Laugh You Lose
     (cue_block
       (cue_timings
         (webvtt_timestamp)
-        (space_separator)
         (timestamp_arrow)
-        (space_separator)
         (webvtt_timestamp))
       (text_including_terminator)))
 
@@ -115,9 +111,7 @@ Aaaaah!
     (cue_block
       (cue_timings
         (webvtt_timestamp)
-        (space_separator)
         (timestamp_arrow)
-        (space_separator)
         (webvtt_timestamp))
       (text_including_terminator)
       (text_including_terminator)
@@ -165,9 +159,7 @@ lorem ipsum dolores...
       (cue_block
         (cue_timings
           (webvtt_timestamp)
-          (space_separator)
           (timestamp_arrow)
-          (space_separator)
           (webvtt_timestamp))
         (text_including_terminator)))
 
@@ -188,9 +180,7 @@ Just another lorem ipsum dolores...
       (cue_block
         (cue_timings
           (webvtt_timestamp)
-          (space_separator)
           (timestamp_arrow)
-          (space_separator)
           (webvtt_timestamp))
         (text_including_terminator)))
 
@@ -211,9 +201,7 @@ Welcome to You Laugh You Lose
         (cue_block
           (cue_timings
             (webvtt_timestamp)
-            (space_separator)
             (timestamp_arrow)
-            (space_separator)
             (webvtt_timestamp))
           (text_including_terminator)))
 
@@ -233,9 +221,7 @@ Welcome to You Laugh You Lose
         (cue_block
           (cue_timings
             (webvtt_timestamp)
-            (space_separator)
             (timestamp_arrow)
-            (space_separator)
             (webvtt_timestamp))
           (text_including_terminator)))
 
@@ -255,17 +241,7 @@ Welcome to You Laugh You Lose
         (cue_block
           (cue_timings
             (webvtt_timestamp)
-            (space_separator)
-            (space_separator)
-            (space_separator)
             (timestamp_arrow)
-            (space_separator)
-            (space_separator)
-            (space_separator)
-            (space_separator)
-            (space_separator)
-            (space_separator)
-            (space_separator)
             (webvtt_timestamp))
           (text_including_terminator)))
 
@@ -285,9 +261,7 @@ Welcome to You Laugh You Lose
         (cue_block
           (cue_timings
             (webvtt_timestamp)
-            (tab_separator)
             (timestamp_arrow)
-            (tab_separator)
             (webvtt_timestamp))
           (text_including_terminator)))
 
@@ -307,18 +281,7 @@ Welcome to You Laugh You Lose
         (cue_block
           (cue_timings
             (webvtt_timestamp)
-            (tab_separator)
-            (tab_separator)
             (timestamp_arrow)
-            (tab_separator)
-            (tab_separator)
-            (tab_separator)
-            (tab_separator)
-            (tab_separator)
-            (tab_separator)
-            (tab_separator)
-            (tab_separator)
-            (tab_separator)
             (webvtt_timestamp))
           (text_including_terminator)))
 
@@ -339,9 +302,7 @@ Welcome to You Laugh You Lose
       (cue_block
         (cue_timings
           (webvtt_timestamp)
-          (space_separator)
           (timestamp_arrow)
-          (space_separator)
           (webvtt_timestamp))
         (cue_settings
           (cue_setting
@@ -367,9 +328,7 @@ Welcome to You Laugh You Lose
       (cue_block
         (cue_timings
           (webvtt_timestamp)
-          (space_separator)
           (timestamp_arrow)
-          (space_separator)
           (webvtt_timestamp))
         (cue_settings
           (cue_setting
@@ -400,9 +359,7 @@ Welcome to You Laugh You Lose
       (cue_block
         (cue_timings
           (webvtt_timestamp)
-          (space_separator)
           (timestamp_arrow)
-          (space_separator)
           (webvtt_timestamp))
         (cue_settings
           (cue_setting
@@ -433,9 +390,7 @@ Welcome to You Laugh You Lose
       (cue_block
         (cue_timings
           (webvtt_timestamp)
-          (space_separator)
           (timestamp_arrow)
-          (space_separator)
           (webvtt_timestamp))
         (cue_settings
           (cue_setting
@@ -466,9 +421,7 @@ Welcome to You Laugh You Lose
       (cue_block
         (cue_timings
           (webvtt_timestamp)
-          (space_separator)
           (timestamp_arrow)
-          (space_separator)
           (webvtt_timestamp))
         (cue_settings
           (cue_setting

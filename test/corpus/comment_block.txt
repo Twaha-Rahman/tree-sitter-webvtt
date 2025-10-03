@@ -34,7 +34,7 @@ NOTE This is a simple space separated comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (text_including_terminator)))
+      (commented_text)))
 
 =======================
 Comment block with tab separated comment
@@ -50,7 +50,7 @@ NOTE	This is a simple tab separated comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (text_including_terminator)))
+      (commented_text)))
  
 =======================
 Comment block with line separator separated comment
@@ -67,7 +67,7 @@ This is a simple comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (text_including_terminator)))
+      (commented_text)))
  
 =======================
 Comment block with multiple lines with the initial separator being the space separator
@@ -85,9 +85,9 @@ This is a simple comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (text_including_terminator)
-      (text_including_terminator)
-      (text_including_terminator)))
+      (commented_text)
+      (commented_text)
+      (commented_text)))
 
 =======================
 Comment block with multiple lines with the initial separator being the tab separator
@@ -105,9 +105,9 @@ This is a simple comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (text_including_terminator)
-      (text_including_terminator)
-      (text_including_terminator)))
+      (commented_text)
+      (commented_text)
+      (commented_text)))
  
 =======================
 Comment block with multiple lines with the initial separator being the line separator
@@ -126,7 +126,7 @@ This is a simple comment
   (webvtt_block (webvtt_keyword))
     (comment_block
     (note_keyword)
-      (text_including_terminator)
-      (text_including_terminator)
-      (text_including_terminator)))
+      (commented_text)
+      (commented_text)
+      (commented_text)))
  

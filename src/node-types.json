@@ -8,11 +8,11 @@
       "required": true,
       "types": [
         {
-          "type": "note_keyword",
+          "type": "commented_text",
           "named": true
         },
         {
-          "type": "text_including_terminator",
+          "type": "note_keyword",
           "named": true
         }
       ]
@@ -31,15 +31,15 @@
           "named": true
         },
         {
+          "type": "cue_payload",
+          "named": true
+        },
+        {
           "type": "cue_settings",
           "named": true
         },
         {
           "type": "cue_timings",
-          "named": true
-        },
-        {
-          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -178,15 +178,15 @@
       "required": true,
       "types": [
         {
+          "type": "attribute_value",
+          "named": true
+        },
+        {
           "type": "id_attribute",
           "named": true
         },
         {
           "type": "separator_colon",
-          "named": true
-        },
-        {
-          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -201,7 +201,7 @@
       "required": true,
       "types": [
         {
-          "type": "ascii_digits_with_terminator",
+          "type": "attribute_value",
           "named": true
         },
         {
@@ -224,15 +224,15 @@
       "required": true,
       "types": [
         {
+          "type": "attribute_value",
+          "named": true
+        },
+        {
           "type": "scroll_attribute",
           "named": true
         },
         {
           "type": "separator_colon",
-          "named": true
-        },
-        {
-          "type": "text_including_terminator",
           "named": true
         }
       ]
@@ -325,11 +325,11 @@
       "required": true,
       "types": [
         {
-          "type": "style_keyword",
+          "type": "css_style",
           "named": true
         },
         {
-          "type": "text_including_terminator",
+          "type": "style_keyword",
           "named": true
         }
       ]
@@ -348,7 +348,7 @@
           "named": true
         },
         {
-          "type": "text_before_terminator",
+          "type": "optional_webvtt_trailing_text",
           "named": true
         },
         {
@@ -397,7 +397,7 @@
     }
   },
   {
-    "type": "ascii_digits_with_terminator",
+    "type": "attribute_value",
     "named": true
   },
   {
@@ -410,7 +410,19 @@
     "named": true
   },
   {
+    "type": "commented_text",
+    "named": true
+  },
+  {
+    "type": "css_style",
+    "named": true
+  },
+  {
     "type": "cue_name",
+    "named": true
+  },
+  {
+    "type": "cue_payload",
     "named": true
   },
   {
@@ -438,6 +450,10 @@
     "named": true
   },
   {
+    "type": "optional_webvtt_trailing_text",
+    "named": true
+  },
+  {
     "type": "percentage_symbol",
     "named": true
   },
@@ -459,14 +475,6 @@
   },
   {
     "type": "style_keyword",
-    "named": true
-  },
-  {
-    "type": "text_before_terminator",
-    "named": true
-  },
-  {
-    "type": "text_including_terminator",
     "named": true
   },
   {

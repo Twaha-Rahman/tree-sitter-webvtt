@@ -23,7 +23,7 @@ module.exports = grammar({
     ),
 
     // Group1 will come before group2 according to the W3C WebVTT spec
-    _group1: $ => prec(3, choice($.region_definition_block, $.style_block, $.comment_block)),
+    _group1: $ => prec(2, choice($.region_definition_block, $.style_block, $.comment_block)),
     _group2: $ => choice($.cue_block, $.comment_block),
 
     webvtt_block: $ => prec.left(1, seq(
@@ -32,7 +32,7 @@ module.exports = grammar({
       optional(
         seq(
           choice($._space_separator, $._tab_separator),
-          $.text_before_terminator
+          alias($.text_before_terminator, $.optional_webvtt_trailing_text)
         )
       ),
       $._line_terminator,
@@ -57,13 +57,15 @@ module.exports = grammar({
     ),
 
     region_identifier: $ => seq(
-      $.id_attribute, $.separator_colon, $.text_including_terminator
+      $.id_attribute,
+      $.separator_colon,
+      alias($.text_including_terminator, $.attribute_value)
     ),
     region_width: $ => seq(
       $.width_attribute, $.separator_colon, $.webvtt_percentage, $._line_terminator
     ),
     region_lines: $ => seq(
-      $.lines_attribute, $.separator_colon, $.ascii_digits_with_terminator
+      $.lines_attribute, $.separator_colon, alias($.ascii_digits, $.attribute_value), $._line_terminator
     ),
     region_anchor: $ => seq(
       $.region_anchor_attribute, $.separator_colon, $.webvtt_percentage_pair, $._line_terminator
@@ -72,7 +74,9 @@ module.exports = grammar({
       $.viewport_anchor_attribute, $.separator_colon, $.webvtt_percentage_pair, $._line_terminator
     ),
     region_scroll: $ => seq(
-      $.scroll_attribute, $.separator_colon, $.text_including_terminator
+      $.scroll_attribute,
+      $.separator_colon,
+      alias($.text_including_terminator, $.attribute_value)
     ),
 
     comment_block: $ => seq(
@@ -82,7 +86,7 @@ module.exports = grammar({
         $._space_separator,
         $._line_terminator
       ),
-      repeat($.text_including_terminator),
+      repeat(alias($.text_including_terminator, $.commented_text)),
       $._line_terminator
     ),
 
@@ -90,7 +94,7 @@ module.exports = grammar({
       $.style_keyword,
       optional(choice(repeat($._space_separator), repeat($._tab_separator))),
       $._line_terminator,
-      repeat($.text_including_terminator),
+      repeat(alias($.text_including_terminator, $.css_style)),
       $._line_terminator
     ),
 
@@ -102,7 +106,7 @@ module.exports = grammar({
       ),
       $._line_terminator,
       repeat(
-        $.text_including_terminator
+        alias($.text_including_terminator, $.cue_payload)
       ),
       $._line_terminator
     ),
@@ -163,7 +167,6 @@ module.exports = grammar({
     scroll_attribute: () => /scroll/,
 
     ascii_digits: () => /[0-9]+/,
-    ascii_digits_with_terminator: () => /[0-9]+(\n|\r|\r\n)/,
     _hidden_ascii_digits: $ => alias($.ascii_digits, "hidden_ascii_digits"),
 
     percentage_value: $ => seq(

@@ -70,7 +70,7 @@ Welcome to You Laugh You Lose
         (webvtt_timestamp)
         (timestamp_arrow)
         (webvtt_timestamp))
-      (text_including_terminator)))
+      (cue_payload)))
 
 =======================
 Cue block without cue name
@@ -90,7 +90,7 @@ Welcome to You Laugh You Lose
         (webvtt_timestamp)
         (timestamp_arrow)
         (webvtt_timestamp))
-      (text_including_terminator)))
+      (cue_payload)))
 
 
 =======================
@@ -113,9 +113,9 @@ Aaaaah!
         (webvtt_timestamp)
         (timestamp_arrow)
         (webvtt_timestamp))
-      (text_including_terminator)
-      (text_including_terminator)
-      (text_including_terminator)))
+      (cue_payload)
+      (cue_payload)
+      (cue_payload)))
 
 
 =======================
@@ -161,7 +161,7 @@ lorem ipsum dolores...
           (webvtt_timestamp)
           (timestamp_arrow)
           (webvtt_timestamp))
-        (text_including_terminator)))
+        (cue_payload)))
 
 =======================
 Cue block with more than 2 digit hours in timestamp
@@ -182,7 +182,7 @@ Just another lorem ipsum dolores...
           (webvtt_timestamp)
           (timestamp_arrow)
           (webvtt_timestamp))
-        (text_including_terminator)))
+        (cue_payload)))
 
 =======================
 Cue block with only no space or tab separated cue timings
@@ -203,7 +203,7 @@ Welcome to You Laugh You Lose
             (webvtt_timestamp)
             (timestamp_arrow)
             (webvtt_timestamp))
-          (text_including_terminator)))
+          (cue_payload)))
 
 =======================
 Cue block with only one space separated cue timings
@@ -223,7 +223,7 @@ Welcome to You Laugh You Lose
             (webvtt_timestamp)
             (timestamp_arrow)
             (webvtt_timestamp))
-          (text_including_terminator)))
+          (cue_payload)))
 
 =======================
 Cue block with more than one space separated cue timings
@@ -243,7 +243,7 @@ Welcome to You Laugh You Lose
             (webvtt_timestamp)
             (timestamp_arrow)
             (webvtt_timestamp))
-          (text_including_terminator)))
+          (cue_payload)))
 
 =======================
 Cue block with only one tab separated cue timings
@@ -263,7 +263,7 @@ Welcome to You Laugh You Lose
             (webvtt_timestamp)
             (timestamp_arrow)
             (webvtt_timestamp))
-          (text_including_terminator)))
+          (cue_payload)))
 
 =======================
 Cue block with more than one tab separated cue timings
@@ -283,7 +283,7 @@ Welcome to You Laugh You Lose
             (webvtt_timestamp)
             (timestamp_arrow)
             (webvtt_timestamp))
-          (text_including_terminator)))
+          (cue_payload)))
 
 =======================
 Cue block with only one cue setting
@@ -309,7 +309,7 @@ Welcome to You Laugh You Lose
             (cue_setting_name)
             (separator_colon)
             (cue_setting_value)))
-        (text_including_terminator)))
+        (cue_payload)))
 
 =======================
 Cue block with more than one cue setting
@@ -340,7 +340,7 @@ Welcome to You Laugh You Lose
             (cue_setting_name)
             (separator_colon)
             (cue_setting_value)))
-        (text_including_terminator)))
+        (cue_payload)))
 
 =======================
 Cue block with cue settings separated using variable number of spaces
@@ -371,7 +371,7 @@ Welcome to You Laugh You Lose
             (cue_setting_name)
             (separator_colon)
             (cue_setting_value)))
-        (text_including_terminator)))
+        (cue_payload)))
 
 =======================
 Cue block with cue settings separated using variable number of tabs
@@ -402,7 +402,7 @@ Welcome to You Laugh You Lose
             (cue_setting_name)
             (separator_colon)
             (cue_setting_value)))
-        (text_including_terminator)))
+        (cue_payload)))
 
 =======================
 Cue block with cue setting consisting of only cue name (no cue value)
@@ -426,5 +426,5 @@ Welcome to You Laugh You Lose
         (cue_settings
           (cue_setting
             (cue_setting_name)))
-        (text_including_terminator)))
+        (cue_payload)))
 

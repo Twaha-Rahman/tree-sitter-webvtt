@@ -15,8 +15,8 @@ width: 150px;
         (webvtt_keyword))
       (style_block
         (style_keyword)
-        (text_including_terminator)
-        (text_including_terminator)))
+        (css_style)
+        (css_style)))
 
 ====================================================
 STYLE block with trailing spaces
@@ -35,8 +35,8 @@ width: 150px;
         (webvtt_keyword))
       (style_block
         (style_keyword)
-        (text_including_terminator)
-        (text_including_terminator)))
+        (css_style)
+        (css_style)))
 
 ====================================================
 STYLE block with trailing tabs
@@ -55,8 +55,8 @@ width: 150px;
         (webvtt_keyword))
       (style_block
         (style_keyword)
-        (text_including_terminator)
-        (text_including_terminator)))
+        (css_style)
+        (css_style)))
 
 ====================================================
 STYLE block with mangled STYLE keyword

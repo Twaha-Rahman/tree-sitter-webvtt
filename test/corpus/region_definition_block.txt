@@ -45,7 +45,7 @@ id:hello
         (region_identifier
           (id_attribute)
           (separator_colon)
-          (text_including_terminator))))
+          (attribute_value))))
 
 ================================================
 REGION block with trailing spaces
@@ -66,7 +66,7 @@ id:hello
         (region_identifier
           (id_attribute)
           (separator_colon)
-          (text_including_terminator))))
+          (attribute_value))))
 
 ================================================
 REGION block with trailing tabs
@@ -87,7 +87,7 @@ id:hello
         (region_identifier
           (id_attribute)
           (separator_colon)
-          (text_including_terminator))))
+          (attribute_value))))
 
 ================================================
 REGION block with more than 1 region settings
@@ -110,7 +110,7 @@ lines:3
         (region_identifier
           (id_attribute)
           (separator_colon)
-          (text_including_terminator))
+          (attribute_value))
         (region_width
           (width_attribute)
           (separator_colon)
@@ -120,7 +120,76 @@ lines:3
         (region_lines
           (lines_attribute)
           (separator_colon)
-          (ascii_digits_with_terminator))))
+          (attribute_value))))
+
+================================================
+REGION block with width attribute consisting of invalid WebVTT percentage
+:error
+================================================
+WEBVTT
+
+REGION
+id:fred
+width:40
+
+
+---
+
+================================================
+REGION block with width attribute consisting of valid WebVTT percentage without fraction
+================================================
+WEBVTT
+
+REGION
+id:fred
+width:40%
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))))
+
+================================================
+REGION block with width attribute consisting of valid WebVTT percentage with fraction
+================================================
+WEBVTT
+
+REGION
+id:fred
+width:40.22%
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))))
 
 ================================================
 REGION block with all possible region settings
@@ -146,7 +215,7 @@ scroll:up
         (region_identifier
           (id_attribute)
           (separator_colon)
-          (text_including_terminator))
+          (attribute_value))
         (region_width
           (width_attribute)
           (separator_colon)
@@ -156,7 +225,7 @@ scroll:up
         (region_lines
           (lines_attribute)
           (separator_colon)
-          (ascii_digits_with_terminator))
+          (attribute_value))
         (region_anchor
           (region_anchor_attribute)
           (separator_colon)
@@ -182,5 +251,5 @@ scroll:up
         (region_scroll
           (scroll_attribute)
           (separator_colon)
-          (text_including_terminator))))
+          (attribute_value))))
 

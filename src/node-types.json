@@ -402,8 +402,7 @@
   },
   {
     "type": "byte_order_mark",
-    "named": true,
-    "extra": true
+    "named": true
   },
   {
     "type": "comma_symbol",

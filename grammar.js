@@ -9,17 +9,15 @@
 
 module.exports = grammar({
   name: "webvtt",
-  conflicts: $ => [[$.source_file]],
+  // conflicts: $ => [[$.source_file]],
   externals: $ => [$.text_including_terminator, $.text_before_terminator, $.cue_name, $.error_sentinel],
-  extras: $ => [$.byte_order_mark],
+  extras: () => [],
 
   rules: {
     source_file: $ => seq(
       $.webvtt_block,
       repeat($._group1),
-      repeat($._line_terminator),
       repeat($._group2),
-      repeat($._line_terminator)
     ),
 
     // Group1 will come before group2 according to the W3C WebVTT spec
@@ -36,7 +34,8 @@ module.exports = grammar({
         )
       ),
       $._line_terminator,
-      repeat1($._line_terminator)
+      $._line_terminator,
+      $._empty_lines
     )),
 
     region_definition_block: $ => seq(
@@ -53,7 +52,8 @@ module.exports = grammar({
           $.region_scroll
         )
       ),
-      $._line_terminator
+      $._line_terminator,
+      $._empty_lines
     ),
 
     region_identifier: $ => seq(
@@ -87,7 +87,8 @@ module.exports = grammar({
         $._line_terminator
       ),
       repeat(alias($.text_including_terminator, $.commented_text)),
-      $._line_terminator
+      $._line_terminator,
+      $._empty_lines
     ),
 
     style_block: $ => seq(
@@ -95,7 +96,8 @@ module.exports = grammar({
       optional(choice(repeat($._space_separator), repeat($._tab_separator))),
       $._line_terminator,
       repeat(alias($.text_including_terminator, $.css_style)),
-      $._line_terminator
+      $._line_terminator,
+      $._empty_lines
     ),
 
     cue_block: $ => seq(
@@ -108,7 +110,8 @@ module.exports = grammar({
       repeat(
         alias($.text_including_terminator, $.cue_payload)
       ),
-      $._line_terminator
+      $._line_terminator,
+      $._empty_lines
     ),
 
     cue_settings: $ => seq(
@@ -185,6 +188,7 @@ module.exports = grammar({
     _tabs_or_spaces: () => /[ \t]+/,
 
     _line_terminator: () => /\n|\r|\r\n/,
+    _empty_lines: () => /(\n|\r|\r\n)*/,
 
     // According to the W3C WebVTT spec, the hours in the timestamp should consist of 2 or more ASCII digits.
     // But, it seems Tree-sitter has a bug and doen't support interval quantifier where the upperbound is omitted.

@@ -1,0 +1,1262 @@
+===================================================
+WebVTT block with extra trailing terminators to the next component
+===================================================
+WEBVTT
+
+
+
+NOTE This is a comment
+
+
+---
+
+(source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (comment_block
+        (note_keyword)
+        (commented_text)))
+
+===================================================
+WebVTT block with only one terminator to the next component
+:error
+===================================================
+WEBVTT
+NOTE This is a comment
+
+
+---
+
+===================================================
+WebVTT block with no terminator to the next component
+:error
+===================================================
+WEBVTTNOTE This is a comment
+
+
+---
+
+===================================================
+WEBVTT block + NOTE block + REGION block (No attribute)
+===================================================
+WEBVTT
+
+NOTE This is a comment
+
+REGION
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (comment_block
+        (note_keyword)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)))
+
+===================================================
+WEBVTT block + REGION block (No attribute) + NOTE block
+===================================================
+WEBVTT
+
+REGION
+
+NOTE This is a comment
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword))
+      (comment_block
+        (note_keyword)
+        (commented_text)))
+
+===================================================
+WEBVTT block + NOTE block + REGION block
+===================================================
+WEBVTT
+
+NOTE This is a comment
+
+REGION
+id:123
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (comment_block
+        (note_keyword)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))))
+
+===================================================
+WEBVTT block + REGION block + NOTE block
+===================================================
+WEBVTT
+
+REGION
+id:123
+
+NOTE This is a comment
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (comment_block
+        (note_keyword)
+        (commented_text)))
+
+===================================================
+WEBVTT block + REGION block + NOTE block (Multiline)
+===================================================
+WEBVTT
+
+REGION
+id:123
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text)))
+
+===================================================
+WEBVTT block + NOTE block (Multiline) + REGION block
+===================================================
+WEBVTT
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:123
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))))
+
+===================================================
+WEBVTT block + REGION block + NOTE block (With varying number of terminators in between them)
+===================================================
+WEBVTT
+
+
+
+
+
+
+REGION
+id:123
+
+
+
+
+NOTE This is a comment
+
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (comment_block
+        (note_keyword)
+        (commented_text)))
+
+===================================================
+WEBVTT block + REGION block (All attributes) + NOTE block (Multiline)
+===================================================
+WEBVTT
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text)))
+
+===================================================
+WEBVTT block + NOTE block (Multiline) + REGION block (All attributes)
+===================================================
+WEBVTT
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value))))
+
+===================================================
+WEBVTT block + NOTE block (Multiline) + REGION block (All attributes) with varying terminators
+===================================================
+WEBVTT
+
+
+
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+
+
+
+
+
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value))))
+
+===================================================
+WEBVTT block + STYLE block (No style) + NOTE block (Multiline) + REGION block (All attributes)
+===================================================
+WEBVTT
+
+STYLE
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value))))
+
+===================================================
+WEBVTT block + STYLE block + NOTE block (Multiline) + REGION block (All attributes)
+===================================================
+WEBVTT
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value))))
+
+===================================================
+STYLE, NOTE (Multiline), REGION (All attributes), Cue block (Single line cue payload)
+===================================================
+WEBVTT
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+00:00:00.002 --> 00:00:10.123
+Just a plain text cue payload
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (timestamp_arrow)
+          (webvtt_timestamp))
+        (cue_payload)))
+
+===================================================
+STYLE, NOTE (Multiline), REGION (All attributes), Cue block (Multiline text cue payload)
+===================================================
+WEBVTT
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+00:00:00.002 --> 00:00:10.123
+Just a plain text cue payload
+Line 2
+Line 3
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (timestamp_arrow)
+          (webvtt_timestamp))
+        (cue_payload)
+        (cue_payload)
+        (cue_payload)))
+
+===================================================
+STYLE, NOTE (Multiline), REGION (All attributes), Cue block (Multiline text cue payload with cue settings)
+===================================================
+WEBVTT
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+00:00:00.002 --> 00:00:10.123 region:fred align:left
+Just a plain text cue payload
+Line 2
+Line 3
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (timestamp_arrow)
+          (webvtt_timestamp))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_payload)
+        (cue_payload)
+        (cue_payload)))
+
+===================================================
+STYLE, NOTE (Multiline), REGION (All attributes), Cue block (Multiline text cue payload with cue settings), NOTE block
+===================================================
+WEBVTT
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+00:00:00.002 --> 00:00:10.123 region:fred align:left
+Just a plain text cue payload
+Line 2
+Line 3
+
+NOTE A simple comment
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (timestamp_arrow)
+          (webvtt_timestamp))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_payload)
+        (cue_payload)
+        (cue_payload))
+      (comment_block
+        (note_keyword)
+        (commented_text)))
+
+===================================================
+STYLE, NOTE, REGION, Cue, NOTE block with varying terminators
+===================================================
+WEBVTT
+
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+
+
+
+
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+
+
+00:00:00.002 --> 00:00:10.123 region:fred align:left
+Just a plain text cue payload
+Line 2
+Line 3
+
+
+
+NOTE A simple comment
+
+
+
+---
+
+    (source_file
+      (webvtt_block
+        (webvtt_keyword))
+      (style_block
+        (style_keyword)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style)
+        (css_style))
+      (comment_block
+        (note_keyword)
+        (commented_text)
+        (commented_text)
+        (commented_text)
+        (commented_text))
+      (region_definition_block
+        (region_keyword)
+        (region_identifier
+          (id_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_width
+          (width_attribute)
+          (separator_colon)
+          (webvtt_percentage
+            (percentage_value)
+            (percentage_symbol)))
+        (region_lines
+          (lines_attribute)
+          (separator_colon)
+          (attribute_value))
+        (region_anchor
+          (region_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_viewport_anchor
+          (viewport_anchor_attribute)
+          (separator_colon)
+          (webvtt_percentage_pair
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))
+            (comma_symbol)
+            (webvtt_percentage
+              (percentage_value)
+              (percentage_symbol))))
+        (region_scroll
+          (scroll_attribute)
+          (separator_colon)
+          (attribute_value)))
+      (cue_block
+        (cue_timings
+          (webvtt_timestamp)
+          (timestamp_arrow)
+          (webvtt_timestamp))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_settings
+          (cue_setting
+            (cue_setting_name)
+            (separator_colon)
+            (cue_setting_value)))
+        (cue_payload)
+        (cue_payload)
+        (cue_payload))
+      (comment_block
+        (note_keyword)
+        (commented_text)))
+
+===================================================
+STYLE block shouldn't be able come after any cue blocks
+:error
+===================================================
+WEBVTT
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+00:00:00.002 --> 00:00:10.123 region:fred align:left
+Just a plain text cue payload
+Line 2
+Line 3
+
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+NOTE A simple comment
+
+
+---
+
+===================================================
+REGION block shouldn't be able come after any cue blocks
+:error
+===================================================
+WEBVTT
+
+STYLE
+::cue {
+  background-image: linear-gradient(to bottom, dimgray, lightgray);
+  /* Style blocks cannot use blank lines nor "dash dash greater than" */
+  color: papayawhip;
+}
+
+NOTE This is a comment
+lorem ipsum dolores
+just another day in
+open sauce
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+00:00:00.002 --> 00:00:10.123 region:fred align:left
+Just a plain text cue payload
+Line 2
+Line 3
+
+
+REGION
+id:fred
+width:40%
+lines:3
+regionanchor:0%,100%
+viewportanchor:10%,90%
+scroll:up
+
+NOTE A simple comment
+
+
+---
+
